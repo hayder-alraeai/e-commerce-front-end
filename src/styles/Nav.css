@@ -1,0 +1,45 @@
+.header{
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+}
+.header-nav{
+  text-align: right;
+  
+}
+.header-nav ul{
+  margin-right: 1vmin;
+  margin-top: 1vmin;
+}
+.header-nav ul li{
+  list-style: none;
+  display: inline;
+  padding: 1vmin;
+}
+.header-nav ul li:hover{
+  background-color: #88d000;
+}
+.header-nav ul li a{
+  text-decoration: none;
+  color: #7f7f7f;
+}
+/* nav ends here */
+.header-content{
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.header-content .header-logo{
+  flex: 20%;
+  text-align: left;
+}
+.header-content .search-bar{
+  flex: 70%;
+}
+.header-content .shopping-cart{
+  flex: 5%;
+  padding: 0;
+  font-size: 30pt;
+}
