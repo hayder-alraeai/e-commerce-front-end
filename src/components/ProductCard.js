@@ -8,7 +8,7 @@ const ProductCard = ({image}) => {
             <img src={image} />
             <p className="product-card-description">This is the discription for this product lorem lorem lorem</p>
             <p className="product-card-price">100000</p>
-            <button >Show product</button>
+            <button className="product-card-button">Show product</button>
         </div>
     )
 }

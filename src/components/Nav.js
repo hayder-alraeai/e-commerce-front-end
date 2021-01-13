@@ -19,7 +19,7 @@ const Nav = () => {
                 <div className="header-logo"><img src={logo1} /></div>
                 <div className="search-bar"><SearchBar /></div>
                 <div className="shopping-cart">
-                    <Badge count={2}>
+                    <Badge count={15}>
                         <span className="head-example" />
                     </Badge>
                     <ShoppingCartOutlined /></div>
