@@ -1,8 +1,8 @@
 .home-body{
     padding: 1rem;
     width: 80%;
-    height: 500px;
     background-color: #fff;
+    border-left: 1px solid #cccccc;
 }
 .home-upper-text{
     display: flex;

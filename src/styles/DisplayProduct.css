@@ -1,0 +1,11 @@
+.diplay-products-body{
+    border-left: 0;
+}
+.display-products{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    border-left: 0;
+    justify-content: center;
+    padding: 1rem;
+}

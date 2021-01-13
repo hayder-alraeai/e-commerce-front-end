@@ -1,0 +1,32 @@
+.product-card-body{
+    margin: 0.1rem;
+    cursor: pointer;
+    padding: 3rem ;
+    border-radius: 10px;
+
+}
+.product-card-body:hover{
+    padding: 3.1rem;
+    -moz-box-shadow:    inset 0 0 30px #dad7d7;
+    -webkit-box-shadow: inset 0 0 30px #dad7d7;
+    box-shadow:         inset 0 0 30px #ebe7e7;
+}
+
+.product-card-body img{
+    width: 10rem;
+}
+.product-card-body .product-card-description{
+    color: #5f5a55;
+}
+.product-card-body .product-card-price{
+    font-size: 18pt;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid #79cbc6;
+}
+.product-card-body button{
+    background-color: #c63736;
+    border: 0;
+    color: white;
+    padding: 0.5rem;
+    border-radius: 3px;
+}
