@@ -2,6 +2,7 @@
   display: flex;
   flex-direction: column;
   background-color: #fff;
+  border-bottom: 1px solid #cccccc;
 }
 .header-nav{
   text-align: right;
@@ -17,11 +18,15 @@
   padding: 1vmin;
 }
 .header-nav ul li:hover{
-  background-color: #88d000;
+  color: #fff;
+  background-color: #c63736;
 }
 .header-nav ul li a{
   text-decoration: none;
   color: #7f7f7f;
+}
+.header-nav ul li a:hover{
+  color: #fff;
 }
 /* nav ends here */
 .header-content{
@@ -34,6 +39,10 @@
 .header-content .header-logo{
   flex: 20%;
   text-align: left;
+}
+.header-content .header-logo img{
+  margin-left: 3rem;
+  width: 6rem;
 }
 .header-content .search-bar{
   flex: 70%;

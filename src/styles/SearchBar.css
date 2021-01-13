@@ -1,0 +1,23 @@
+.search-bar{
+    display: flex;
+    justify-content: center;
+}
+.search-wraper{
+    border: 1px solid #c63736;
+    border-radius: 3px;
+}
+.search-wraper input{
+    width: 20em;
+    border: 0;
+    margin-left: 10px;
+    padding: 0.2rem;
+    font-size: 17pt;
+}
+.search-button{
+    border: 0;
+    background-color: #c63736;
+    width: 4rem;
+    padding: 0.2em;
+    font-size: 17pt;
+    color: #fff;
+}

@@ -11,17 +11,17 @@ function App() {
     <div className="App">
       <div className="container">
       <Nav />
-      <Categories /> 
-      <Content>
-      <Switch>
-        <Route exact path="/" >
-            <Home />
-        </Route>
-        <Route exact path="/product">
-            <Product />
-        </Route>
-      </Switch>
-      </Content>
+        <div className="content-wrapper">
+          <Categories/> 
+          <Switch>
+            <Route exact path="/" >
+                <Home />
+            </Route>
+            <Route exact path="/product">
+                <Product />
+            </Route>
+          </Switch>
+          </div>
       </div>
     </div>
   );

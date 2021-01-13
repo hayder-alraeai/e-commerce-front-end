@@ -1,14 +1,32 @@
-.logo {
-    height: 32px;
-    background: (255, 255, 255, 0.2);
-    margin: 16px;
-  }
-  .site-layout .site-layout-background {
-    background: #fff;
-  }
-    [data-theme="light"] .site-layout .site-layout-background {
-      background: #fff;
-    }
 .categories-body{
-    
+  width: 20%;
+  height: 500px;
+  background-color: #fff;
+  border-right: 1px solid #cccccc;
+}
+.categories-header{
+  padding: 0.5rem;
+  background-color: #cccccc;
+  font-weight: bolder;
+}
+.categories-body ul{
+  text-align: left;
+  padding-left: 0;
+}
+.categories-body ul li{
+  padding: 1rem;
+  width: 100%;
+  list-style: none;
+  border-bottom: 1px solid #ccc;
+}
+.categories-body ul li:hover{
+  cursor: pointer;
+  background-color: #c63736;
+  color: #fff;
+}
+.categories-body ul li a{
+  text-decoration: none;
+  color: rgb(41, 40, 40);
+  padding: 1rem;
+  width: 100%;
 }

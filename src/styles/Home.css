@@ -1,5 +1,15 @@
 .home-body{
-margin-top: 64px;
-height: 500px;
-background-color: blue;
+    padding: 1rem;
+    width: 80%;
+    height: 500px;
+    background-color: #fff;
+}
+.home-upper-text{
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+}
+.home-upper-text div p{
+    margin-left: 1rem;
+    
 }

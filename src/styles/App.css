@@ -1,6 +1,6 @@
 .App {
   text-align: center;
-  background-color: rgb(66, 63, 63);
+  background-color: #79cbc6;
 
 }
 .container{
@@ -19,5 +19,14 @@
 }
 .margin-top-body{
   margin-top: 64px;
+}
+.content-wrapper{
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: stretch;
+  background-color: #fff;
+  
 }
 
