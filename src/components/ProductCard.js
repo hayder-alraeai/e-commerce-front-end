@@ -2,12 +2,13 @@
 import React from 'react' 
 import '../styles/ProductCard.css'
 
-const ProductCard = ({image}) => {
+const ProductCard = ({obj}) => {
+    const img = "http://localhost:8080/api/images/" + obj.imageId
     return(
         <div className="product-card-body">
-            <img src={image} />
-            <p className="product-card-description">This is the discription for this product lorem lorem lorem</p>
-            <p className="product-card-price">100000</p>
+            <img src={img} />
+            <p className="product-card-description">{obj.productDescription}</p>
+            <p className="product-card-price">{obj.productPrice}</p>
             <button className="product-card-button">Show product</button>
         </div>
     )

@@ -1,11 +1,16 @@
-.diplay-products-body{
+.display-products-body{
     border-left: 0;
 }
 .display-products{
-    display: flex;
+    /* display: flex;
     flex-direction: row;
     justify-content: center;
     border-left: 0;
     justify-content: center;
-    padding: 1rem;
+    padding: 1rem; */
+    display: flex;
+    flex-wrap: wrap;
+}
+.child{
+    flex: 1 0 21%;
 }
