@@ -1,0 +1,70 @@
+import React, {useState} from 'react'
+import "../../styles/admin-style/Category.css"
+import '../../styles/General.css'
+import {backendPath} from '../../config/Config'
+import { Modal } from 'antd';
+import 'antd/dist/antd.css';
+import {EditOutlined, DeleteOutlined} from '@ant-design/icons'
+const Category = (props) => {
+    const [isModalVisible, setIsModalVisible] = useState(false);
+    const [categoryName, setCategoryName] = useState({value: ''})
+      const handleOk = (categoryId) => {
+        updateCategory(categoryId,categoryName.value)
+        setCategoryName({value: ''})
+        setIsModalVisible(false);
+      };
+      const showModal = (value) => {
+        setCategoryName({value})
+        setIsModalVisible(true);
+      };
+      const handleCancel = () => {
+        setIsModalVisible(false);
+      };
+      const updateCategory = async(categoryId, categoryName) => {
+        await fetch(backendPath + '/api/categories/' + categoryId, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json' 
+            },
+            body: JSON.stringify({ categoryName: categoryName }),    
+        })
+        .catch(error => console.log(error))
+    }
+    return(
+            <div className="category-wrapper">
+                <Modal 
+                    className="create-category-modal"
+                    title="Update Category"
+                    visible={isModalVisible} 
+                    onOk={() => handleOk(props.obj.categoryId)} 
+                    bodyStyle={{backgroundColor:'#ccc'}}
+                    onCancel={handleCancel}>
+                        <input 
+                            type="text" 
+                            placeholder="Category name ..."
+                            onChange={e => setCategoryName({value:e.target.value})}
+                            value={categoryName.value}
+                        />
+                </Modal>
+                <div className="category-item">
+                    {props.obj.categoryName}
+                </div>
+                <div className="category-item">
+                    creation time
+                </div>
+                <div onClick={() => {showModal(props.obj.categoryName)}} className="category-button update-color">
+                    <EditOutlined />
+                </div>
+                <div onClick={() => {
+                    if(window.confirm("You are about removing " + props.obj.categoryName + " Are you sure?")){
+                        props.delete(props.obj.categoryId)
+                    }
+                    
+                }} className="category-button delete-color">
+                    <DeleteOutlined />
+                </div>
+            </div>
+            
+    )
+}
+export default Category

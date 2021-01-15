@@ -1,0 +1,32 @@
+.admin-display-categories-body{
+    padding:3rem;
+}
+.category-wrapper-header{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    padding: 1rem;
+    font-weight: bolder;
+    background-color:#c63736;
+    color: white;
+}
+.category-item-header{
+    flex: 8;
+    text-align: left;
+}
+.category-button-header{
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    align-content: center;
+}
+.create-category-modal{
+
+}
+.create-category-modal input{
+    width: 100%;
+    padding: 1rem;
+    border-radius: 1rem;
+    border: 0.5px solid #ccc
+
+}

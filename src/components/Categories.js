@@ -1,21 +1,14 @@
 import React, { useEffect, useState } from 'react' 
 import '../styles/Categories.css'
+import {getCategories} from '../apies/ApiFunctions'
 
 const Categories = () => {
   const [categories, setCategories] = useState([])
-  const [isLoading, setIsloading] = useState(true)
+  const [isLoading, setIsLoading] = useState(true)
   useEffect(() => {
-    getCategories()
+    getCategories(setCategories, setIsLoading)
   }, [])
 
-  const getCategories = async() => {
-      await fetch('http://localhost:8080/api/categories')
-      .then(response => response.json())
-      .then(data => setCategories(data))
-      .then(() => setIsloading(false))
-      .catch(error => console.log(error))
-  }
-  
     return(
         <div className="categories-body">
           <div className="categories-header">All Categories</div>

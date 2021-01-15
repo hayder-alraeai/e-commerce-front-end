@@ -13,7 +13,7 @@ const Carousel = () => {
         background: '#364d79',
       };
     return(
-        <Carousel1 autoplay>
+        <Carousel1 autoplay arrows={true}>
         <div>
           <img src={first} style={contentStyle} />
         </div>
