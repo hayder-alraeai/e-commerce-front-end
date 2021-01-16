@@ -15,10 +15,10 @@ const Carousel = () => {
     return(
         <Carousel1 autoplay arrows={true}>
         <div>
-          <img src={first} style={contentStyle} />
+          <img src={first} style={contentStyle} alt="reklam1" />
         </div>
         <div>
-        <img src={second} style={contentStyle} />
+        <img src={second} style={contentStyle} alt="reklam1"  />
         </div>
       </Carousel1>
     )

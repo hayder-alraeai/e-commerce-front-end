@@ -16,12 +16,12 @@
 .admin-content-wrapper .admin-aside{
     width: 20%;
     height: 1000px;
+    border-right:1px solid #ccc;
 }
 .admin-content-wrapper .admin-content{
     width: 80%;
 }
 .admin-content-wrapper .admin-aside-button-wrapper{
-
 }
 .admin-content-wrapper .admin-aside-button-wrapper ul{
     text-align: left;
@@ -31,6 +31,7 @@
 .admin-content-wrapper .admin-aside-button-wrapper ul li{
     cursor: pointer;
     list-style: none;
+    background-color: #eeeeee;
     padding: 1rem;
     margin-bottom: 0.1rem;
 }

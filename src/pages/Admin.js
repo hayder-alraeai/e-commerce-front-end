@@ -13,6 +13,7 @@ const Admin = () => {
     const openItems = () => {
         setIsItems(true)
         setIsCategories(false)
+        console.log(isItems)
     }
     return(
         <div className="admin-body">
@@ -21,7 +22,6 @@ const Admin = () => {
                 Welcom to Control panel</div>
             <div className="admin-content-wrapper">
                 <div className="admin-aside">
-                    <p>this is aside section</p>
                     <div className="admin-aside-button-wrapper">
                         <ul>
                             <li onClick={openCategories} >Categories</li>

@@ -1,0 +1,77 @@
+.display-items-body{
+    padding:3rem;
+}
+.reload-icon{
+    display: flex;
+    height: 10rem;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 30pt;
+}
+.display-items-content{
+    width: 100%;
+
+}
+.display-items-content-header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: stretch;
+    flex-wrap: wrap;
+    width: 100%;
+    height: 3rem;
+    background-color: #c63736;
+    color: white;
+    font-weight: bolder;
+}
+.display-items-content-header div{
+    flex: 1;
+}
+.display-items-content-header .desc{
+    flex: 3;
+}
+.display-items-content-header .img{
+    flex: 3;
+}
+.display-items-content-body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: stretch;
+    flex-wrap: wrap;
+    width: 100%;
+    height: 70%;
+    background-color: #eeeeee;
+    color: black;
+    font-weight: bolder;
+    margin-bottom: 0.1rem;
+}
+.display-items-content-body div{
+    padding: 0.5rem;
+    flex: 1;
+}
+.display-items-content-body .desc{
+    flex: 4;
+    overflow-wrap: break-word;
+}
+.display-items-content-body .img{
+    flex: 3;
+}
+.display-items-content-body .img img{
+    height: 5rem;
+    width: 5rem;
+}
+.item-button{
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    align-content: center;
+    cursor: pointer;
+    font-size: 20pt;
+}
+.item-button:hover{
+    background-color: #c63736;
+    color: white;
+    /* background-color: #ccc;
+    border-radius: 100%; */
+}

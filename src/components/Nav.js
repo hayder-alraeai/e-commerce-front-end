@@ -17,7 +17,7 @@ const Nav = () => {
                 </ul>
             </nav>
             <div className="header-content">
-                <div className="header-logo"><img src={logo1} /></div>
+                <div className="header-logo"><img src={logo1} alt="logo1" /></div>
                 <div className="search-bar"><SearchBar /></div>
                 <div className="shopping-cart">
                     <Badge count={15}>

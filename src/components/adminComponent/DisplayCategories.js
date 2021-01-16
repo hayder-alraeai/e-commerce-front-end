@@ -3,7 +3,7 @@ import Category from './Category'
 import "../../styles/admin-style/DisplayCategories.css"
 import {getCategories} from '../../apies/ApiFunctions'
 import {backendPath} from '../../config/Config'
-import CreateCategoryModalen from './CreateModal'
+import CreateCategoryModalen from './CreateCategoryModal'
 
 const DisplayCategories = () => {
     const [categories, setCategories] = useState([])

@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react'
+import React, {useState} from 'react'
 import {backendPath} from '../../config/Config'
 import { Modal } from 'antd';
 import 'antd/dist/antd.css';
@@ -29,7 +29,7 @@ const CreateCategoryModalen = () => {
     }
     return(
         <div>
-            <CreateButton onClick={showModal} />
+            <CreateButton onClick={showModal} text="Create new Category" />
             <Modal 
                 className="create-category-modal"
                 title="Create a new Category"
