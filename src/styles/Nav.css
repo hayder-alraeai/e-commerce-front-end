@@ -8,24 +8,22 @@
   text-align: right;
   
 }
-.header-nav ul{
+/* .header-nav ul{
   margin-right: 1vmin;
   margin-top: 1vmin;
-}
+} */
 .header-nav ul li{
   list-style: none;
   display: inline;
   padding: 1vmin;
 }
-.header-nav ul li:hover{
-  color: #fff;
-  background-color: #c63736;
-}
 .header-nav ul li a{
+  padding: 0.5rem;
   text-decoration: none;
   color: #7f7f7f;
 }
 .header-nav ul li a:hover{
+  background-color: #c63736;
   color: #fff;
 }
 /* nav ends here */

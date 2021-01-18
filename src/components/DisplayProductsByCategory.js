@@ -2,12 +2,12 @@
 import React, { useEffect, useState } from 'react' 
 import '../styles/DisplayProduct.css'
 import ProductCard from './ProductCard'
-import {getProducts} from '../apies/ProductApiFunctions'
-const DisplayProducts = () => {
+import {getProductsByCategoryId} from '../apies/ProductApiFunctions'
+const DisplayProductsByCategory = ({categoryId}) => {
     const [productsList, setProductslist] = useState([])
     const [isLoading, setIsloading] = useState(true)
     useEffect(() => {
-        getProducts(setProductslist, setIsloading)
+        getProductsByCategoryId(setProductslist, setIsloading, categoryId)
         
     }, [])
     
@@ -27,4 +27,4 @@ const DisplayProducts = () => {
         </div>
     )
 }
-export default DisplayProducts
+export default DisplayProductsByCategory

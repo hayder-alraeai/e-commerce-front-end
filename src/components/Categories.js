@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react' 
 import '../styles/Categories.css'
 import {getCategories} from '../apies/ApiFunctions'
+import { Link } from 'react-router-dom'
 
 const Categories = () => {
   const [categories, setCategories] = useState([])
@@ -16,7 +17,7 @@ const Categories = () => {
           <ul>
             {!isLoading? categories.map(item => {
               return(
-                <li key={item.categoryId}>{item.categoryName}</li>
+                <li key={item.categoryId}><Link to={"/categories/" + item.categoryId}>{item.categoryName}</Link></li>
               )
             }): <p>No data</p>}
           </ul>

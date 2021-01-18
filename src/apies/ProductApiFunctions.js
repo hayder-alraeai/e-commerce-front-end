@@ -7,6 +7,13 @@ export const getProducts = async(setProducts, setIsLoading) => {
     .then(() => setIsLoading(false))
     .catch(error => console.log(error))
 }
+export const getProductsByCategoryId = async(setProducts, setIsLoading, categoryId) => {
+    await fetch(backendPath + '/api/products/category/' + categoryId)
+    .then(response => response.json())
+    .then(data => setProducts(data))
+    .then(() => setIsLoading(false))
+    .catch(error => console.log(error))
+}
 export const addProduct = async(data) => {
     await fetch(backendPath + '/api/products', {
         method: 'POST',
@@ -32,4 +39,18 @@ export const deleteProduct = async productId => {
         }
     })
 
+}
+export const updateProduct = async(data, id) => {
+    await fetch(backendPath + '/api/products/' + id, {
+        method: 'POST',
+        body: data
+    })
+    .then(response => {
+        if(response.ok){
+            alert('the item has been updated')
+        }else{
+            
+            alert('something went wrong!' + response)
+        }
+    }).catch(e => console.log(e))
 }

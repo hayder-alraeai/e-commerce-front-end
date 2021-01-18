@@ -6,8 +6,9 @@ import '../../styles/admin-style/DisplayItems.css'
 import '../../styles/General.css'
 import CreateProduct from './CreateProduct';
 import {backendPath} from '../../config/Config'
-import {EditOutlined, DeleteOutlined} from '@ant-design/icons'
+import { DeleteOutlined} from '@ant-design/icons'
 import {deleteProduct} from '../../apies/ProductApiFunctions'
+import UpdateProduct from './UpdateProduct';
 const DisplayItems = () => {
     const [products, setProducts] = useState([])
     const [isLoading, setIsLoading] = useState(true)
@@ -44,8 +45,12 @@ const DisplayItems = () => {
                                 <div>{item.category.categoryName}</div>
                                 <div>{item.productPrice}</div>
                                 <div>Created</div>
-                                <div className="item-button update-color" > <EditOutlined /></div>
-                                <div className="item-button delete-color" onClick={() => deleteProduct(item.id)} ><DeleteOutlined /></div>
+                                <div className="item-button update-color"><UpdateProduct obj={item} /> </div>
+                                <div className="item-button delete-color" onClick={() => {
+                                    if (window.confirm("You are about removing a product! Are you sure?")) {
+                                        deleteProduct(item.id)
+                                    }       
+                                }} ><DeleteOutlined /></div>
                             </div>
                         )
                     })

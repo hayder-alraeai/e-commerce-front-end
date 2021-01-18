@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useContext, useState} from 'react'
 import { Link } from 'react-router-dom';
 import  '../styles/Nav.css'
 import {ShoppingCartOutlined} from '@ant-design/icons'
@@ -6,14 +6,18 @@ import SearchBar from './SearchBar';
 import 'antd/dist/antd.css';
 import logo1 from '../styles/images/logo1.png'
 import { Badge } from 'antd';
+import {UserContext} from '../authentication/UserContext'
 const Nav = () => {
+    const {isAuthenticated, login, logout} = useContext(UserContext)
     return(
         <div className="header">
             <nav className="header-nav">
                 <ul>
                     <li><Link to='/'>Home</Link></li>
                     <li><Link to='/product'>Product</Link></li>
-                    <li><Link to='/admin'>Admin</Link></li>
+                    {isAuthenticated ? <li><Link to='/admin'>Admin</Link></li> : null}
+                    {isAuthenticated ? <li onClick={logout}><Link>Logout</Link></li> : <li onClick={login}><Link>Login</Link></li>}
+                    
                 </ul>
             </nav>
             <div className="header-content">
