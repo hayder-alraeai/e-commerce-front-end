@@ -1,0 +1,11 @@
+.login-body{
+    width: 100%;
+}
+.login-wrapper{
+    margin: auto;
+    margin-top: 10rem;
+    width: 60%;
+}
+.login-wrapper img{
+    width: 10rem;
+}

@@ -1,11 +1,18 @@
-import React, { useState } from 'react' 
+import React, { useEffect, useState } from 'react' 
 import DisplayCategories from '../components/adminComponent/DisplayCategories'
 import DisplayItems from '../components/adminComponent/DisplayItems'
 import '../styles/admin-style/Admin.css'
 import {ControlOutlined} from '@ant-design/icons'
+import { useHistory } from "react-router-dom";
 const Admin = () => {
     const [isCategories, setIsCategories] = useState(true)
     const [isItems, setIsItems] = useState(false)
+    let history = useHistory()
+    useEffect(() => {
+        if (localStorage.getItem('token').length === 0) {
+            history.push("/")
+        }
+    }, [])
     const openCategories = () => {
         setIsItems(false)
         setIsCategories(true)

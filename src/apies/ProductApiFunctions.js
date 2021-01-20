@@ -17,6 +17,9 @@ export const getProductsByCategoryId = async(setProducts, setIsLoading, category
 export const addProduct = async(data) => {
     await fetch(backendPath + '/api/products', {
         method: 'POST',
+        headers: {
+            'Authorization': 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJoYXlkZXI4NjAxMTZAaG90bWFpbC5jb20iLCJleHAiOjE2MTExOTE0MDYsImlhdCI6MTYxMTE1NTQwNn0.lCPi4a8dvtX10ClUkDff8XPqHlKI6HkwBmo6YPaUPf0'
+          },
         body: data
     })
     .then(response => {
