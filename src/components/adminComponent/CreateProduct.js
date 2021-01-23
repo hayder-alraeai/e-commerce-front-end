@@ -4,7 +4,7 @@ import { Modal } from 'antd';
 import {addProduct} from '../../apies/ProductApiFunctions'
 import {getCategories} from '../../apies/ApiFunctions'
 import '../../styles/admin-style/CreateProduct.css'
-const CreateProduct = () => {
+const CreateProduct = ({token}) => {
     const [categories, setCategories] = useState([])
     const [isLoading, setIsLoading] = useState(true)
     const [isModalVisible, setIsModalVisible] = useState(false);
@@ -25,7 +25,7 @@ const CreateProduct = () => {
         data.append('categoryId', category)
         data.append('productDescription', description)
         data.append('productPrice', price)
-        addProduct(data)
+        addProduct(data, token)
     }
     const handleOk = () => {
       setIsModalVisible(false);

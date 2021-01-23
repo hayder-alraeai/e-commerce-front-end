@@ -1,24 +1,25 @@
-import React, { useState } from 'react'
+import React, { useState, useContext, useEffect } from 'react'
 import '../styles/Login.css'
 import Login_logo from '../styles/images/login.png'
-import {login} from '../apies/Login'
-import Password from 'antd/lib/input/Password'
 import { useHistory } from "react-router-dom";
-const Login = () => {
+const Login = ({handleLogin, isAuthenticated}) => {
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
     const [isLoading, setIsLoading] = useState(true)
     let history = useHistory()
+    useEffect(() => {
+        if (isAuthenticated) {
+            history.push("/")
+        }
+    }, [])
     const handleSubmit = (e) => {
         e.preventDefault()
-        let data = JSON.stringify({username: username, password: password})
-         login(data, setIsLoading)
-         history.push("/")
-        
+        handleLogin(username, password, setIsLoading)    
     }
 
     return(
         <div className="login-body">
+            {console.log(isAuthenticated)}
             <div className="login-wrapper">
                 <img src={Login_logo} alt="login" />
                 <form>

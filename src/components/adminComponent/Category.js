@@ -24,8 +24,9 @@ const Category = (props) => {
         await fetch(backendPath + '/api/categories/' + categoryId, {
             method: 'PUT',
             headers: {
-                'Content-Type': 'application/json' 
-            },
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + props.token
+              },
             body: JSON.stringify({ categoryName: categoryName }),    
         })
         .catch(error => console.log(error))

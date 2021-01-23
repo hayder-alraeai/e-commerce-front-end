@@ -16,7 +16,7 @@ const Nav = () => {
                     <li><Link to='/'>Home</Link></li>
                     <li><Link to='/product'>Product</Link></li>
                     {isAuthenticated ? <li><Link to='/admin'>Admin</Link></li> : null}
-                    {isAuthenticated ? <li onClick={logout}><Link to="/logout">Logout</Link></li> : <li onClick={login}><Link to="/login">Login</Link></li>}
+                    {isAuthenticated ? <li onClick={logout}><Link to="/logout">Logout</Link></li> : <li><Link to="/login">Login</Link></li>}
                     
                 </ul>
             </nav>

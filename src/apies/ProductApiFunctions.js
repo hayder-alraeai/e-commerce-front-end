@@ -14,11 +14,11 @@ export const getProductsByCategoryId = async(setProducts, setIsLoading, category
     .then(() => setIsLoading(false))
     .catch(error => console.log(error))
 }
-export const addProduct = async(data) => {
+export const addProduct = async(data, token) => {
     await fetch(backendPath + '/api/products', {
         method: 'POST',
         headers: {
-            'Authorization': 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJoYXlkZXI4NjAxMTZAaG90bWFpbC5jb20iLCJleHAiOjE2MTExOTE0MDYsImlhdCI6MTYxMTE1NTQwNn0.lCPi4a8dvtX10ClUkDff8XPqHlKI6HkwBmo6YPaUPf0'
+            'Authorization': 'Bearer ' + token
           },
         body: data
     })
@@ -26,13 +26,19 @@ export const addProduct = async(data) => {
         if(response.ok){
             alert('the item has been saved')
         }else{
-            alert('something went wrong!')
+            alert('something went wrong!' + response.statusText)
+            console.log(response.text())
+            console.log(response.status)
         }
     })
 }
-export const deleteProduct = async productId => {
+export const deleteProduct = async (productId, token) => {
+    console.log(token)
     await fetch(backendPath + '/api/products/' + productId, {
-        method: 'DELETE'
+        method: 'DELETE',
+        headers: {
+            'Authorization': 'Bearer ' + token
+          },
     })
     .then(res => {
         if(res.ok){
@@ -43,9 +49,12 @@ export const deleteProduct = async productId => {
     })
 
 }
-export const updateProduct = async(data, id) => {
+export const updateProduct = async(data, id, token) => {
     await fetch(backendPath + '/api/products/' + id, {
         method: 'POST',
+        headers: {
+            'Authorization': 'Bearer ' + token
+          },
         body: data
     })
     .then(response => {

@@ -3,14 +3,18 @@ import DisplayCategories from '../components/adminComponent/DisplayCategories'
 import DisplayItems from '../components/adminComponent/DisplayItems'
 import '../styles/admin-style/Admin.css'
 import {ControlOutlined} from '@ant-design/icons'
-import { useHistory } from "react-router-dom";
-const Admin = () => {
+
+const Admin = ({token}) => {
     const [isCategories, setIsCategories] = useState(true)
     const [isItems, setIsItems] = useState(false)
-    let history = useHistory()
+    const [localToken, setLocalToken] = useState('')
     useEffect(() => {
-        if (localStorage.getItem('token').length === 0) {
-            history.push("/")
+        if (token.length < 20) {
+            
+            setLocalToken(localStorage.getItem('token'))
+        }
+        if (token.length > 20) {
+            setLocalToken(token)
         }
     }, [])
     const openCategories = () => {
@@ -37,10 +41,10 @@ const Admin = () => {
                     </div>
                 </div>
                 {isCategories ? <div className="admin-content" >
-                    <DisplayCategories />
+                    <DisplayCategories token={localToken} />
                 </div> : 
                 <div className="admin-content" >
-                    <DisplayItems />
+                    <DisplayItems token={localToken} />
                 </div>}
             </div>
         </div>

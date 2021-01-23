@@ -1,6 +1,6 @@
 import {backendPath} from '../config/Config'
 
-export const login = async(data, setIsLoading) => {
+export const login = async(data, setIsLoading, setIsAuthenticated, history, setToken) => {
     await fetch(backendPath + '/api/users/login', {
         method: 'POST',
         headers: {
@@ -9,8 +9,30 @@ export const login = async(data, setIsLoading) => {
           },
         body: data
     })
-    .then(response => response.json())
-    .then(d => localStorage.setItem('token', d.token))
-    .then(() => setIsLoading(false))
-    .catch(error => console.log("erro while fetching: hello from me: " + error))
+    .then(result => {
+        if(result.ok){
+            return result.json()
+        }else{
+            alert("username or passord is unconrrect!")
+            throw new Error(result.status)
+        }
+    })
+    .then(d => {
+        if(d.token.length < 10){
+            return
+        }else{
+            localStorage.setItem('token', d.token)
+            setIsAuthenticated(true)
+            setToken(d.token)
+            setIsLoading(false)
+            history.push('/')
+        }
+    })
+    // .then(response => response.json())
+    // .then(d => {
+    //     localStorage.setItem('token', d.token)
+    //     setIsAuthenticated(true)
+    //     setIsLoading(false)
+    // })
+    .catch(error => console.log(error.message))
 }

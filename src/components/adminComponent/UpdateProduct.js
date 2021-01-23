@@ -4,7 +4,7 @@ import {getCategories} from '../../apies/ApiFunctions'
 import '../../styles/admin-style/CreateProduct.css'
 import {EditOutlined} from '@ant-design/icons'
 import {updateProduct} from '../../apies/ProductApiFunctions'
-const UpdateProduct = ({update, obj}) => {
+const UpdateProduct = ({update, obj, token}) => {
     const [categories, setCategories] = useState([])
     const [isLoading, setIsLoading] = useState(true)
     const [isModalVisible, setIsModalVisible] = useState(false);
@@ -28,7 +28,7 @@ const UpdateProduct = ({update, obj}) => {
         data.append('categoryId', category)
         data.append('productDescription', description)
         data.append('productPrice', price)
-        updateProduct(data, obj.id)
+        updateProduct(data, obj.id, token)
     }
     const handleOk = () => {
       setIsModalVisible(false);

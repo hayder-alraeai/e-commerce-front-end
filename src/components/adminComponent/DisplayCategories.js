@@ -5,7 +5,7 @@ import {getCategories} from '../../apies/ApiFunctions'
 import {backendPath} from '../../config/Config'
 import CreateCategoryModalen from './CreateCategoryModal'
 
-const DisplayCategories = () => {
+const DisplayCategories = ({token}) => {
     const [categories, setCategories] = useState([])
     const [isLoading, setIsLoading] = useState(true)
 
@@ -14,15 +14,19 @@ const DisplayCategories = () => {
     }, [categories])
 
     const deleteCategory = async(categoryId) => {
+        console.log(token)
         await fetch(backendPath + '/api/categories/' + categoryId, {
             method: 'DELETE',
+            headers: {
+                'Authorization': 'Bearer ' + token
+              },
 
         })
         .catch(error => console.log(error))
     }
     return(
         <div className="admin-display-categories-body">
-            <CreateCategoryModalen />
+            <CreateCategoryModalen token={token} />
             {/* //this is the table header */}
             <div className="category-wrapper-header">
                 <div className="category-item-header">
@@ -41,7 +45,7 @@ const DisplayCategories = () => {
             {!isLoading? categories.map(item => {
               return(
                     <div key={item.categoryId}>
-                        <Category obj={item} delete={deleteCategory} />
+                        <Category obj={item} token={token} delete={deleteCategory} />
                     </div>
               )
             }): <p>No data</p>}

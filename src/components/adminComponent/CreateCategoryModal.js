@@ -3,7 +3,7 @@ import {backendPath} from '../../config/Config'
 import { Modal } from 'antd';
 import 'antd/dist/antd.css';
 import CreateButton from './CreateButton'
-const CreateCategoryModalen = () => {
+const CreateCategoryModalen = ({token}) => {
     const [isModalVisible, setIsModalVisible] = useState(false);
     const [categoryName, setCategoryName] = useState({value: ''})
       const handleOk = () => {
@@ -21,7 +21,8 @@ const CreateCategoryModalen = () => {
         await fetch(backendPath + '/api/categories', {
             method: 'POST',
             headers: {
-                'Content-Type': 'application/json' 
+              'Content-Type': 'application/json',
+              'Authorization': 'Bearer ' + token
             },
             body: JSON.stringify({ categoryName: name }),    
         })

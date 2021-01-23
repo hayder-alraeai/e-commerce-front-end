@@ -9,7 +9,7 @@ import {backendPath} from '../../config/Config'
 import { DeleteOutlined} from '@ant-design/icons'
 import {deleteProduct} from '../../apies/ProductApiFunctions'
 import UpdateProduct from './UpdateProduct';
-const DisplayItems = () => {
+const DisplayItems = ({token}) => {
     const [products, setProducts] = useState([])
     const [isLoading, setIsLoading] = useState(true)
     useEffect(() => {
@@ -25,7 +25,7 @@ const DisplayItems = () => {
     }
     return(
         <div className="display-items-body">
-            <CreateProduct />
+            <CreateProduct token={token} />
             <div className="display-items-content">
                 <div className="display-items-content-header">
                     <div className="img">Image</div>
@@ -45,10 +45,10 @@ const DisplayItems = () => {
                                 <div>{item.category.categoryName}</div>
                                 <div>{item.productPrice}</div>
                                 <div>Created</div>
-                                <div className="item-button update-color"><UpdateProduct obj={item} /> </div>
+                                <div className="item-button update-color"><UpdateProduct obj={item} token={token} /> </div>
                                 <div className="item-button delete-color" onClick={() => {
                                     if (window.confirm("You are about removing a product! Are you sure?")) {
-                                        deleteProduct(item.id)
+                                        deleteProduct(item.id, token)
                                     }       
                                 }} ><DeleteOutlined /></div>
                             </div>
