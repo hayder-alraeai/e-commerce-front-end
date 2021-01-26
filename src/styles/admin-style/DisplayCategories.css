@@ -1,5 +1,5 @@
 .admin-display-categories-body{
-    padding:3rem;
+    padding:0 3rem;
 }
 .category-wrapper-header{
     display: flex;
@@ -29,4 +29,7 @@
     border-radius: 1rem;
     border: 0.5px solid #ccc
 
+}
+.admin-display-categories-body .message{
+    margin-bottom: 3rem;
 }

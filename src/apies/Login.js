@@ -1,6 +1,6 @@
 import {backendPath} from '../config/Config'
 
-export const login = async(data, setIsLoading, setIsAuthenticated, history, setToken) => {
+export const login = async(data, setIsLoading, setIsAuthenticated, history, setToken, setMessage) => {
     await fetch(backendPath + '/api/users/login', {
         method: 'POST',
         headers: {
@@ -13,7 +13,7 @@ export const login = async(data, setIsLoading, setIsAuthenticated, history, setT
         if(result.ok){
             return result.json()
         }else{
-            alert("username or passord is unconrrect!")
+            setMessage("Username or Password is incorrect!")
             throw new Error(result.status)
         }
     })

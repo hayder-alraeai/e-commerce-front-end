@@ -3,12 +3,22 @@
     height: 1000px;
 }
 .admin-header{
+    display: flex;
+    flex-direction:row ;
+    align-items: center;
     width: 100%;
-    padding: 1rem;
     color: white;
     font-size: large;
     background-color: #c63736;
     font-weight: bolder;
+}
+.admin-header .icon{
+    font-size: 30pt;
+    margin-right: 1rem;
+    margin-left: 1rem;
+}
+.admin-header .text{
+    
 }
 .admin-content-wrapper{
     display: flex;

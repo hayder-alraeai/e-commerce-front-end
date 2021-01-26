@@ -29,8 +29,9 @@ const Admin = ({token}) => {
     return(
         <div className="admin-body">
             <div className="admin-header">
-            <ControlOutlined />
-                Welcom to Control panel</div>
+                <div className='icon'><ControlOutlined /></div>
+                <div className="text">Welcome to Control panel</div>
+            </div>
             <div className="admin-content-wrapper">
                 <div className="admin-aside">
                     <div className="admin-aside-button-wrapper">

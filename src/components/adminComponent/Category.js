@@ -29,6 +29,17 @@ const Category = (props) => {
               },
             body: JSON.stringify({ categoryName: categoryName }),    
         })
+        .then(response => {
+            if (response.ok) {
+              props.handleMessage('Category ' + categoryName + ' has been updated')
+            }else{
+              if(response.status === 403){
+                alert('You have been loggedout')
+                window.location.reload()
+              }
+  
+            }
+          })
         .catch(error => console.log(error))
     }
     return(

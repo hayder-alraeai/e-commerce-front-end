@@ -12,11 +12,12 @@ import {UserContext} from './authentication/UserContext'
 import Login from './pages/Login';
 import {login} from './apies/Login'
 import { useHistory } from "react-router-dom";
-import {decode} from 'jsonwebtoken'
+import { decodeToken, isExpired } from "react-jwt";
 function App() {
   let history = useHistory()
   const [token, setToken] = useState('')
   const [isAuthenticated, setIsAuthenticated] = useState(false)
+  const [message, setMessage] = useState('')
   useEffect(() => {
     checkIsLoggedIn()
   }, [])
@@ -28,20 +29,25 @@ function App() {
     }catch(error){
       alert(error)
     }
-    if(t){
-      const {exp} = decode(token)
-      console.log(exp)
+    if(!isExpired(t)){
+      setToken(localStorage.getItem('token'))
       setIsAuthenticated(true)
       return true
     }else{
       setIsAuthenticated(false)
+      try{
+        localStorage.removeItem('token')
+      }catch(error){
+        console.log(error)
+      }
+      history.push("/login")
       return false
     }
     
   }
   const handleLogin = (username, password, setIsLoading) => {
     let data = JSON.stringify({username: username, password: password})
-      login(data, setIsLoading, setIsAuthenticated, history, setToken)
+      login(data, setIsLoading, setIsAuthenticated, history, setToken, setMessage)
   }
   const logout = () => {
     try {
@@ -76,7 +82,7 @@ function App() {
             </Route>
             <Route exact path="/login">
             <Categories/> 
-                <Login handleLogin={handleLogin} isAuthenticated={isAuthenticated} />
+                <Login handleLogin={handleLogin} isAuthenticated={isAuthenticated} message={message} />
             </Route>
             <Route exact path="/categories/:id">
             <Categories/>

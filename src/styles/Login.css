@@ -3,8 +3,10 @@
 }
 .login-wrapper{
     margin: auto;
-    margin-top: 10rem;
     width: 60%;
+}
+.login-body .message {
+    margin-bottom: 10rem;
 }
 .login-wrapper img{
     width: 10rem;
