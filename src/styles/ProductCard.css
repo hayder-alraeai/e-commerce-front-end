@@ -1,5 +1,5 @@
 .product-card-body{
-
+    max-width: 20rem;
     margin: 0.1rem;
     cursor: pointer;
     padding: 3rem ;

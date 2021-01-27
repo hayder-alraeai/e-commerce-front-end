@@ -12,7 +12,7 @@ import {UserContext} from './authentication/UserContext'
 import Login from './pages/Login';
 import {login} from './apies/Login'
 import { useHistory } from "react-router-dom";
-import { decodeToken, isExpired } from "react-jwt";
+import {  isExpired } from "react-jwt";
 import ProductPage from './pages/ProductPage';
 function App() {
   let history = useHistory()
@@ -21,7 +21,7 @@ function App() {
   const [message, setMessage] = useState('')
   useEffect(() => {
     checkIsLoggedIn()
-  }, [])
+  },[])
 
   const checkIsLoggedIn = () => {
     let t = ''

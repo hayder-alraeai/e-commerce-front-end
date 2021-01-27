@@ -12,7 +12,7 @@ const ProductCard = ({obj}) => {
             {isMouseOver ? <div>
                 <img src={img}  alt="product" />
                 <p className="product-card-description">{obj.productDescription}</p>
-                <p className="product-card-price">{obj.productPrice}</p>
+                <p className="product-card-price">{obj.productPrice + " SEK"}</p>
                 <button className="product-card-button">Show product</button> 
             </div>:
                 <div>
