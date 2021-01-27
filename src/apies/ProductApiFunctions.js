@@ -66,3 +66,10 @@ export const updateProduct = async(data, id, token) => {
         }
     }).catch(e => console.log(e))
 }
+export const getProductById = async(setProduct, setIsLoading, productId) => {
+    await fetch(backendPath + '/api/products/' + productId)
+    .then(response => response.json())
+    .then(data => setProduct(data))
+    .then(() => setIsLoading(false))
+    .catch(error => console.log(error))
+}

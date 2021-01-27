@@ -1,0 +1,9 @@
+
+
+.reload-icon{
+    display: flex;
+    height: 10rem;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 30pt;
+}

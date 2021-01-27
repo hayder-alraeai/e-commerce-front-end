@@ -13,6 +13,7 @@ import Login from './pages/Login';
 import {login} from './apies/Login'
 import { useHistory } from "react-router-dom";
 import { decodeToken, isExpired } from "react-jwt";
+import ProductPage from './pages/ProductPage';
 function App() {
   let history = useHistory()
   const [token, setToken] = useState('')
@@ -87,6 +88,9 @@ function App() {
             <Route exact path="/categories/:id">
             <Categories/>
                 <DisplayProductsByCategoryId />
+            </Route>
+            <Route exact path="/product/:id">
+                <ProductPage />
             </Route>
           </Switch>
           </div>

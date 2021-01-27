@@ -1,1 +1,1 @@
-export const backendPath = "http://localhost:8080"
+export const backendPath = "https://e-commerce-de.herokuapp.com"
