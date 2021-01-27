@@ -1,7 +1,8 @@
 .categories-body{
-  width: 20%;
+  width: 15%;
   height: 500px;
   background-color: #fff;
+  border: 1px solid #cccccc;
 }
 .categories-header{
   padding: 0.5rem;

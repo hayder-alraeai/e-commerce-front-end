@@ -14,6 +14,7 @@ import {login} from './apies/Login'
 import { useHistory } from "react-router-dom";
 import {  isExpired } from "react-jwt";
 import ProductPage from './pages/ProductPage';
+import Footer from './components/Footer';
 function App() {
   let history = useHistory()
   const [token, setToken] = useState('')
@@ -94,6 +95,7 @@ function App() {
             </Route>
           </Switch>
           </div>
+          <Footer />
       </div>
     </div>
   );

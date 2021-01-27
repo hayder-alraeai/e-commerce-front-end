@@ -1,6 +1,7 @@
 import React from 'react' 
 import { Carousel as Carousel1 } from 'antd';
 import 'antd/dist/antd.css';
+import '../styles/Carousel.css'
 import first from '../styles/images/first.jpeg'
 import second from '../styles/images/second.webp'
 
@@ -15,10 +16,10 @@ const Carousel = () => {
     return(
         <Carousel1 autoplay arrows={true}>
         <div>
-          <img src={first} style={contentStyle} alt="reklam1" />
+          <img className="content-style" src='https://via.placeholder.com/800x400.png' style={contentStyle} alt="reklam1" />
         </div>
         <div>
-        <img src={second} style={contentStyle} alt="reklam1"  />
+        <img className="content-style" src='https://via.placeholder.com/800x400/09f/fff.pngC/O%20https://placeholder.com/' style={contentStyle} alt="reklam1"  />
         </div>
       </Carousel1>
     )
