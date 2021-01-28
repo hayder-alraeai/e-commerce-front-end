@@ -9,14 +9,16 @@ import { Alert } from 'antd';
 const DisplayCategories = ({token}) => {
     const [categories, setCategories] = useState([])
     const [isLoading, setIsLoading] = useState(true)
+    const [msgStyle, setMsgStyle] = useState('')
     const [message, setMessage] = useState('')
 
     useEffect(() => {
       getCategories(setCategories, setIsLoading)
     }, [categories, message])
 
-    const handleMessage = msg => {
+    const handleMessage = (msg, MsgStyle) => {
         setMessage(msg)
+        setMsgStyle(MsgStyle)
     }
     const deleteCategory = async(categoryId) => {
         console.log(token)
@@ -29,11 +31,14 @@ const DisplayCategories = ({token}) => {
         })
         .then(response => {
             if (response.ok) {
-              handleMessage('Category has been deleted!')
+              handleMessage('Category has been deleted!', 'success')
             }else{
               if(response.status === 403){
                 alert('You have been loggedout')
                 window.location.reload()
+              }else if(response.status === 400){
+                response.json()
+                .then(data => handleMessage(data.message, 'error'))
               }
   
             }
@@ -42,7 +47,7 @@ const DisplayCategories = ({token}) => {
     }
     return(
         <div className="admin-display-categories-body">
-            {message ? <Alert className="message" message={message} type="success" showIcon /> : null}
+            {message && msgStyle ? <Alert className="message" message={message} type={msgStyle} showIcon /> : null}
             <CreateCategoryModalen token={token} handleMessage={handleMessage} />
             {/* //this is the table header */}
             <div className="category-wrapper-header">
