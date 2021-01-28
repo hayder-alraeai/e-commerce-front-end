@@ -4,3 +4,11 @@
 .content-style{
     width: 100%;
 }
+@media only screen and (max-width: 600px){
+    .carousel-body{
+      display: none;
+    }
+    .content-style{
+        display: none;
+    }
+  }

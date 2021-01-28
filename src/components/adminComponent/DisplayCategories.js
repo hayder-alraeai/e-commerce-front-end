@@ -5,6 +5,7 @@ import {getCategories} from '../../apies/ApiFunctions'
 import {backendPath} from '../../config/Config'
 import CreateCategoryModalen from './CreateCategoryModal'
 import { Alert } from 'antd';
+import LoadingIcon from '../LoadingIcon'
 
 const DisplayCategories = ({token}) => {
     const [categories, setCategories] = useState([])
@@ -70,7 +71,7 @@ const DisplayCategories = ({token}) => {
                         <Category obj={item} handleMessage={handleMessage}  token={token} delete={deleteCategory} />
                     </div>
               )
-            }): <p>No data</p>}
+            }): <LoadingIcon />}
             
         </div>
     )

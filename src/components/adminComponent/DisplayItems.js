@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import {getProducts} from '../../apies/ProductApiFunctions'
 import 'antd/dist/antd.css';
-import {LoadingOutlined} from '@ant-design/icons'
+import LoadingIcon from '../LoadingIcon'
 import '../../styles/admin-style/DisplayItems.css'
 import '../../styles/General.css'
 import CreateProduct from './CreateProduct';
@@ -18,9 +18,7 @@ const DisplayItems = ({token}) => {
 
     if(isLoading){
         return(
-            <div className="reload-icon">
-                <LoadingOutlined />
-            </div>
+            <LoadingIcon />
         )
     }
     return(

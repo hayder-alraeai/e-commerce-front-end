@@ -32,3 +32,15 @@
   background-color: #c63736;
   color: #fff;
 }
+.reload-icon{
+  display: flex;
+  height: 10rem;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 30pt;
+}
+@media only screen and (max-width: 600px){
+  .categories-body{
+    display: none;
+  }
+}

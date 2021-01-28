@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import '../styles/Categories.css'
 import {getCategories} from '../apies/ApiFunctions'
 import { Link } from 'react-router-dom'
+import LoadingIcon from './LoadingIcon'
 
 const Categories = () => {
   const [categories, setCategories] = useState([])
@@ -19,7 +20,9 @@ const Categories = () => {
               return(
                 <li key={item.categoryId}><Link className='category-links' to={"/categories/" + item.categoryId}>{item.categoryName}</Link></li>
               )
-            }): <p>No data</p>}
+            }): 
+              <LoadingIcon />
+            }
           </ul>
         </div>
     )

@@ -4,6 +4,8 @@ import '../styles/DisplayProduct.css'
 import ProductCard from './ProductCard'
 import {getProducts} from '../apies/ProductApiFunctions'
 import { Link } from 'react-router-dom'
+import LoadingIcon from './LoadingIcon'
+
 const DisplayProducts = () => {
     const [productsList, setProductslist] = useState([])
     const [isLoading, setIsloading] = useState(true)
@@ -14,7 +16,7 @@ const DisplayProducts = () => {
     
     return(
         <div className="display-products-body">
-            <p>this is the display component!</p>
+            {/* <p>this is the display component!</p> */}
             <div className="display-products">
                 {!isLoading ?  productsList.map(item => {
                     return(
@@ -23,7 +25,9 @@ const DisplayProducts = () => {
                         </div>
                         
                     )
-                }): <p>No data</p>}
+                }): 
+                <LoadingIcon />
+                }
             </div>
         </div>
     )

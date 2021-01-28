@@ -1,13 +1,6 @@
 .display-items-body{
     padding:3rem;
 }
-.reload-icon{
-    display: flex;
-    height: 10rem;
-    flex-direction: column;
-    justify-content: center;
-    font-size: 30pt;
-}
 .display-items-content{
     width: 100%;
 

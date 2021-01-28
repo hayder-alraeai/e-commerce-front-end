@@ -83,7 +83,6 @@ function App() {
                 <Product />
             </Route>
             <Route exact path="/login">
-            <Categories/> 
                 <Login handleLogin={handleLogin} isAuthenticated={isAuthenticated} message={message} />
             </Route>
             <Route exact path="/categories/:id">
