@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react'
 import { useParams } from 'react-router-dom'
-import {LoadingOutlined} from '@ant-design/icons'
+import LoadingIcon from '../components/LoadingIcon'
 import {getProductById} from '../apies/ProductApiFunctions'
 import {backendPath} from '../config/Config'
 const ProductPage = () => {
@@ -16,9 +16,7 @@ const ProductPage = () => {
     
     if(isLoading){
         return(
-            <div className="reload-icon">
-                <LoadingOutlined />
-            </div>
+            <LoadingIcon />
         )
     }
     return(

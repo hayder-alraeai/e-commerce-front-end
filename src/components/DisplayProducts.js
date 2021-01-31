@@ -3,16 +3,16 @@ import React, { useEffect, useState } from 'react'
 import '../styles/DisplayProduct.css'
 import ProductCard from './ProductCard'
 import {getProducts} from '../apies/ProductApiFunctions'
-import { Link } from 'react-router-dom'
 import LoadingIcon from './LoadingIcon'
 
-const DisplayProducts = () => {
+const DisplayProducts = ({handleAddToCart}) => {
     const [productsList, setProductslist] = useState([])
     const [isLoading, setIsloading] = useState(true)
     useEffect(() => {
         getProducts(setProductslist, setIsloading)
         
     }, [])
+
     
     return(
         <div className="display-products-body">
@@ -21,7 +21,7 @@ const DisplayProducts = () => {
                 {!isLoading ?  productsList.map(item => {
                     return(
                         <div className="child" key={item.id}>
-                            <Link to={"/product/" + item.id} ><ProductCard obj={item} /></Link>
+                            <ProductCard obj={item} handleAddToCart={handleAddToCart}  />
                         </div>
                         
                     )

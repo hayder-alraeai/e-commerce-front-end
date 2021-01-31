@@ -20,9 +20,18 @@ function App() {
   const [token, setToken] = useState('')
   const [isAuthenticated, setIsAuthenticated] = useState(false)
   const [message, setMessage] = useState('')
+  const [addToCart, setAddToCart] = useState([])
   useEffect(() => {
     checkIsLoggedIn()
   },[])
+
+
+  const handleAddToCart = productId => {
+       setAddToCart(currentItems => [...currentItems, productId])
+  }
+  const addToLocalStorge = () => {
+    localStorage.setItem('shopingCart', addToCart)
+  }
 
   const checkIsLoggedIn = () => {
     let t = ''
@@ -63,9 +72,10 @@ function App() {
 
   return (
     <div className="App">
+      {console.log('add to cart test: ' + addToCart)}
       <div className="container">
         <UserContext.Provider value={{isAuthenticated, handleLogin, logout}}>
-          <Nav />
+          <Nav addToCart={addToCart} />
         </UserContext.Provider>
         <div className="content-wrapper">
           <Switch>
@@ -76,7 +86,7 @@ function App() {
           <Switch>
             <Route exact path="/" >
             <Categories/> 
-                <Home />
+                <Home handleAddToCart={handleAddToCart} />
             </Route>
             <Route exact path="/product">
             <Categories/> 
