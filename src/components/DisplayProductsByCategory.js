@@ -3,26 +3,26 @@ import React, { useEffect, useState } from 'react'
 import '../styles/DisplayProduct.css'
 import ProductCard from './ProductCard'
 import {getProductsByCategoryId} from '../apies/ProductApiFunctions'
-const DisplayProductsByCategory = ({categoryId}) => {
+import LoadingIcon from './LoadingIcon'
+const DisplayProductsByCategory = ({categoryIdLocal, handleAddToCart}) => {
     const [productsList, setProductslist] = useState([])
     const [isLoading, setIsloading] = useState(true)
     useEffect(() => {
-        getProductsByCategoryId(setProductslist, setIsloading, categoryId)
+        getProductsByCategoryId(setProductslist, setIsloading, categoryIdLocal) 
         
-    }, [])
+    }, [productsList])
     
     return(
         <div className="display-products-body">
-            <p>this is the display component!</p>
             <div className="display-products">
                 {!isLoading ?  productsList.map(item => {
                     return(
                         <div className="child" key={item.id}>
-                            <ProductCard obj={item} />
+                            <ProductCard handleAddToCart={handleAddToCart} obj={item} />
                         </div>
                         
                     )
-                }): <p>No data</p>}
+                }): <LoadingIcon />}
             </div>
         </div>
     )

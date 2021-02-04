@@ -1,0 +1,26 @@
+
+.shopping-cart-body{
+    border: 1px solid black;
+    width: 80%;
+    padding: 2rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+.shopping-cart-body .items .item-title{
+
+}
+.shopping-cart-body .items .item-body{
+    border-bottom: 1px solid black;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+.shopping-cart-body .items img{
+    width: 150px;
+    padding: 2rem;
+}
+.shopping-cart-body .items p{
+    padding: 2rem;
+}

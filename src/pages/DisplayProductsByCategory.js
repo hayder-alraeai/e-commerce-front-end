@@ -1,15 +1,24 @@
-import React, { useEffect, useState } from 'react' 
+import React from 'react' 
 import '../styles/Home.css'
 import '../styles/App.css'
-import DisplayProducts from '../components/DisplayProducts'
-import { useParams } from 'react-router-dom'
+import {useParams} from 'react-router-dom'
 import DisplayProductsByCategory from '../components/DisplayProductsByCategory'
-const DisplayProductsByCategoryId = () => {
+import LoadingIcon from '../components/LoadingIcon'
+const DisplayProductsByCategoryId = ({categoryId, handleAddToCart}) => {
+    let categoryIdLocal = categoryId
     let {id} = useParams()
+
+
+    if(!categoryId && !id){
+        return(
+            <LoadingIcon />
+        )
+    }
     
     return(
         <div className="home-body">
-            <DisplayProductsByCategory categoryId={id} />
+            {console.log('this is useParams: ' + id)}
+            <DisplayProductsByCategory handleAddToCart={handleAddToCart}  categoryIdLocal={categoryIdLocal ? categoryIdLocal : id} />
         </div>
     )
 }

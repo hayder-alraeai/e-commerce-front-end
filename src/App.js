@@ -15,19 +15,24 @@ import { useHistory } from "react-router-dom";
 import {  isExpired } from "react-jwt";
 import ProductPage from './pages/ProductPage';
 import Footer from './components/Footer';
+import ShoppingCart from './pages/ShoppingCart';
 function App() {
   let history = useHistory()
   const [token, setToken] = useState('')
   const [isAuthenticated, setIsAuthenticated] = useState(false)
   const [message, setMessage] = useState('')
   const [addToCart, setAddToCart] = useState([])
+  const [categoryId, setCategoryId] = useState('')
   useEffect(() => {
     checkIsLoggedIn()
-  },[])
+  },[categoryId])
 
+  const setCategoryIdHandler = categoryId => {
+    setCategoryId(categoryId)
+  }
 
-  const handleAddToCart = productId => {
-       setAddToCart(currentItems => [...currentItems, productId])
+  const handleAddToCart = obj => {
+       setAddToCart(currentItems => [...currentItems, obj])
   }
   const addToLocalStorge = () => {
     localStorage.setItem('shopingCart', addToCart)
@@ -51,7 +56,7 @@ function App() {
       }catch(error){
         console.log(error)
       }
-      history.push("/login")
+      // history.push("/login")
       return false
     }
     
@@ -85,22 +90,25 @@ function App() {
           </Switch>
           <Switch>
             <Route exact path="/" >
-            <Categories/> 
+            <Categories setCategoryIdHandler={setCategoryIdHandler} /> 
                 <Home handleAddToCart={handleAddToCart} />
             </Route>
             <Route exact path="/product">
-            <Categories/> 
+            <Categories setCategoryIdHandler={setCategoryIdHandler}/> 
                 <Product />
             </Route>
             <Route exact path="/login">
                 <Login handleLogin={handleLogin} isAuthenticated={isAuthenticated} message={message} />
             </Route>
             <Route exact path="/categories/:id">
-            <Categories/>
-                <DisplayProductsByCategoryId />
+            <Categories setCategoryIdHandler={setCategoryIdHandler}/>
+                <DisplayProductsByCategoryId handleAddToCart={handleAddToCart} categoryId={categoryId} />
             </Route>
             <Route exact path="/product/:id">
                 <ProductPage />
+            </Route>
+            <Route exact path="/shopping-cart">
+                <ShoppingCart addToCart={addToCart}  />
             </Route>
           </Switch>
           </div>

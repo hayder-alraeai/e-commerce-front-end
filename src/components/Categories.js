@@ -4,7 +4,7 @@ import {getCategories} from '../apies/ApiFunctions'
 import { Link } from 'react-router-dom'
 import LoadingIcon from './LoadingIcon'
 
-const Categories = () => {
+const Categories = ({setCategoryIdHandler}) => {
   const [categories, setCategories] = useState([])
   const [isLoading, setIsLoading] = useState(true)
   useEffect(() => {
@@ -18,7 +18,7 @@ const Categories = () => {
           <ul>
             {!isLoading? categories.map(item => {
               return(
-                <li key={item.categoryId}><Link className='category-links' to={"/categories/" + item.categoryId}>{item.categoryName}</Link></li>
+                <li  key={item.categoryId}><Link onClick={() => setCategoryIdHandler(item.categoryId)}  className='category-links' to={"/categories/" + item.categoryId}>{item.categoryName}</Link></li>
               )
             }): 
               <LoadingIcon />

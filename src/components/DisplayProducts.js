@@ -11,7 +11,7 @@ const DisplayProducts = ({handleAddToCart}) => {
     useEffect(() => {
         getProducts(setProductslist, setIsloading)
         
-    }, [])
+    }, [productsList])
 
     
     return(

@@ -26,10 +26,13 @@ const Nav = ({addToCart}) => {
                 <div className="header-logo"><img className="header-logo-image" src={logo1} alt="logo1" /><div className="hamburgar"><MenuComponent /></div></div>
                 <div className="search-bar"><SearchBar /></div>
                 <div className="shopping-cart">
-                    <Badge count={addToCart.length}>
-                        <span className="head-example" />
-                    </Badge>
-                    <ShoppingCartOutlined /></div>
+                    <Link to={"/shopping-cart"} >
+                        <Badge count={addToCart.length}>
+                            <span className="head-example" />
+                        </Badge>
+                        <ShoppingCartOutlined />
+                    </Link>
+                </div>
             </div> 
         </div>
     )
