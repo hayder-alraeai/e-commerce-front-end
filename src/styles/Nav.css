@@ -45,6 +45,9 @@
 .header-content .search-bar{
   flex: 70%;
 }
+.hamburgar{
+  display: none;
+}
 .header-content .shopping-cart{
   flex: 5%;
   padding: 0;
@@ -57,7 +60,10 @@
     align-items: center;
     justify-content: center;
   }
-  .header-content .header-logo{
+  .hamburgar{
+    display: block;
+  }
+  .header-content .header-logo img{
     display: none;
   }
   .header-content .shopping-cart{
