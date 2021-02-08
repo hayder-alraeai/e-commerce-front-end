@@ -1,0 +1,69 @@
+.card-body{
+    position: relative;
+    border: 1px solid #eee;
+    margin: 1rem;
+    padding: 0.4rem;
+    width: 200px;
+    height: 350px;
+    overflow: hidden;
+}
+.card-body:hover{
+    border-bottom: 20px solid #c63736;
+}
+.card-body img{
+    width: 100px;
+    height: 100px;
+    overflow: hidden;
+    margin-bottom: 2rem;
+}
+.card-info{
+
+}
+.card-category{
+    color: #ccc;
+    font-weight: bolder;
+}
+.card-description{
+    font-weight: bolder;
+}
+.card-price{
+    color: #c63736;
+    font-weight: bolder;
+    font-size: large;
+}
+.card-rates{
+
+}
+.card-footer{
+    width: 100%;
+    padding: 1rem;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+.heart{
+    font-size: 15pt;
+    cursor: pointer;
+    margin-right: 1rem;
+}
+.add-to-card{
+    font-size: 15pt;
+    cursor: pointer;
+    margin-right: 1rem;
+}
+.eye{
+    font-size: 15pt;
+    cursor: pointer;
+}
+.heart:hover{
+    font-size: 25pt;
+    color: #c63736;
+}
+.add-to-card:hover{
+    font-size: 25pt;
+    color: #c63736;
+}
+.eye:hover{
+    font-size: 25pt;
+    color: #c63736;
+}

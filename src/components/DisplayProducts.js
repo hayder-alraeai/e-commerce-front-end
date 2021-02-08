@@ -4,6 +4,7 @@ import '../styles/DisplayProduct.css'
 import ProductCard from './ProductCard'
 import {getProducts} from '../apies/ProductApiFunctions'
 import LoadingIcon from './LoadingIcon'
+import ProductCard2 from './ProductCard2'
 
 const DisplayProducts = ({handleAddToCart}) => {
     const [productsList, setProductslist] = useState([])
@@ -21,7 +22,8 @@ const DisplayProducts = ({handleAddToCart}) => {
                 {!isLoading ?  productsList.map(item => {
                     return(
                         <div className="child" key={item.id}>
-                            <ProductCard obj={item} handleAddToCart={handleAddToCart}  />
+                            {/* <ProductCard obj={item} handleAddToCart={handleAddToCart}  /> */}
+                            <ProductCard2 obj={item} handleAddToCart={handleAddToCart} />
                         </div>
                         
                     )
