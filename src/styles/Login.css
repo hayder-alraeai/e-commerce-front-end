@@ -11,7 +11,7 @@
 .login-wrapper img{
     width: 10rem;
 }
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 1300px) {
     .login-body{
         margin-top: 0;
         margin-bottom: 0;

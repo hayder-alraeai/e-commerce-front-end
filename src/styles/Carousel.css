@@ -4,7 +4,7 @@
 .content-style{
     width: 100%;
 }
-@media only screen and (max-width: 600px){
+@media only screen and (max-width: 1300px){
     .carousel-body{
       display: none;
     }
