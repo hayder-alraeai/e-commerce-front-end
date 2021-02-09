@@ -3,6 +3,7 @@ import '../styles/ShoppingCart.css'
 import {backendPath} from '../config/Config'
 const ShoppingCart = ({addToCart}) => {
     const [totalPrice, setTotalPrice] = useState(0)
+    const [count, setCount] = useState(0)
     useEffect(() => {
         calcTotalPrice()
     },[])
@@ -24,7 +25,9 @@ const ShoppingCart = ({addToCart}) => {
                                 <div className="item-body">
                                     <img src={backendPath + "/api/images/" + item.imageId} />
                                     <p>{item.productPrice}</p>
-                                    <p>2</p>
+                                    <p className="minus" onClick={() => setCount(c => c - 1)}>-</p>
+                                    <p>{item.quantity}</p>
+                                    <p className="plus" onClick={() => setCount(c => c + 1)}>+</p>
                                     <p>{item.productPrice * 2}</p>
                                 </div>
                             </div>

@@ -19,7 +19,7 @@ const DisplayProducts = ({handleAddToCart}) => {
         <div className="display-products-body">
             {/* <p>this is the display component!</p> */}
             <div className="display-products">
-                {!isLoading ?  productsList.map(item => {
+                {!isLoading  ?  productsList.map(item => {
                     return(
                         <div className="child" key={item.id}>
                             {/* <ProductCard obj={item} handleAddToCart={handleAddToCart}  /> */}

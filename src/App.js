@@ -32,7 +32,17 @@ function App() {
   }
 
   const handleAddToCart = obj => {
-       setAddToCart(currentItems => [...currentItems, obj])
+        if(!addToCart.find(s => s.id === obj.id)){
+          obj.quantity ++
+          setAddToCart(currentItems => [...currentItems, obj])
+        }else{
+          addToCart.map(item => {
+              if(item.id === obj.id){
+                item.quantity ++
+              }
+          })
+          setAddToCart(addToCart)
+        }
   }
   const addToLocalStorge = () => {
     localStorage.setItem('shopingCart', addToCart)

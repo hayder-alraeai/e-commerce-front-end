@@ -7,7 +7,9 @@ const Footer = () => {
             <hr className='hr' />
             <div className='footer-body-upper'>
                 <h3>About us</h3>
-                <p> We have developed This site using ReactJs, Spring boot, postgresql and deployed to Heroku and Netlify. You can ask us to get the Login credencials to admin page to test this site. </p>
+                <p> OBS!! This site is a demo and still under construction. We have developed This site using ReactJs, 
+                    Spring boot, postgresql and deployed to Heroku and Netlify. 
+                    You can ask us to get the Login credentials to admin page to test this site. </p>
             </div>
             <div className='footer-body-middle'>
                 <FacebookFilled className='social-icon'/>

@@ -13,7 +13,7 @@ const ProductCard2 = ({obj, handleAddToCart, addToLocalStorge}) => {
 
     return(
         <div className="card-body">
-            <div className="card-header">header</div>
+            <div className="card-header"></div>
             <img src={backendPath + "/api/images/" + obj.imageId} />
             <div className="card-info">
                 <div className="card-category">{obj.category.categoryName}</div>

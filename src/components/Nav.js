@@ -1,4 +1,4 @@
-import React, {useContext, useState} from 'react'
+import React, {useContext, useEffect, useState} from 'react'
 import { Link } from 'react-router-dom';
 import  '../styles/Nav.css'
 import {ShoppingCartOutlined} from '@ant-design/icons'
@@ -10,7 +10,6 @@ import {UserContext} from '../authentication/UserContext'
 import MenuComponent from './MenuComponent';
 const Nav = ({addToCart}) => {
     const {isAuthenticated, logout} = useContext(UserContext)
-
     return(
         <div className="header">
             <nav className="header-nav">
@@ -18,8 +17,7 @@ const Nav = ({addToCart}) => {
                     <li><Link to='/'>Home</Link></li>
                     <li><Link to='/product'>Product</Link></li>
                     {isAuthenticated ? <li><Link to='/admin'>Admin</Link></li> : null}
-                    {isAuthenticated ? <li onClick={logout}><Link to="/logout">Logout</Link></li> : <li><Link to="/login">Login</Link></li>}
-                    
+                    {isAuthenticated ? <li onClick={logout}><Link to="/logout">Logout</Link></li> : <li><Link to="/login">Login</Link></li>}      
                 </ul>
             </nav>
             <div className="header-content">

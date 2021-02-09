@@ -10,6 +10,9 @@
 .card-body:hover{
     border-bottom: 20px solid #c63736;
 }
+.card-header{
+    padding: 0.5rem;
+}
 .card-body img{
     width: 100px;
     height: 100px;

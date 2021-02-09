@@ -62,7 +62,7 @@ const Category = (props) => {
                     {props.obj.categoryName}
                 </div>
                 <div className="category-item">
-                    creation time
+                    {props.obj.timeStamp}
                 </div>
                 <div onClick={() => {showModal(props.obj.categoryName)}} className="category-button update-color">
                     <EditOutlined />
