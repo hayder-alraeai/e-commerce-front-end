@@ -24,3 +24,11 @@
 .shopping-cart-body .items p{
     padding: 2rem;
 }
+@media only screen and (max-width: 1300px){
+    .shopping-cart-body{
+        width: 100%;
+        padding: 2rem;
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+    }
+}
