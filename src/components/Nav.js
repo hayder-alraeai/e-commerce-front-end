@@ -8,7 +8,7 @@ import logo1 from '../styles/images/logo1.png'
 import { Badge } from 'antd';
 import {UserContext} from '../authentication/UserContext'
 import MenuComponent from './MenuComponent';
-const Nav = ({addToCart}) => {
+const Nav = ({countItems}) => {
     const {isAuthenticated, logout} = useContext(UserContext)
     return(
         <div className="header">
@@ -25,7 +25,7 @@ const Nav = ({addToCart}) => {
                 <div className="search-bar"><SearchBar /></div>
                 <div className="shopping-cart">
                     <Link to={"/shopping-cart"} >
-                        <Badge count={addToCart.length}>
+                        <Badge count={countItems}>
                             <span className="head-example" />
                         </Badge>
                         <ShoppingCartOutlined />

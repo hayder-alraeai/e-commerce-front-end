@@ -23,9 +23,10 @@ function App() {
   const [message, setMessage] = useState('')
   const [addToCart, setAddToCart] = useState([])
   const [categoryId, setCategoryId] = useState('')
+  const [countItems, setCountItems] = useState(0)
   useEffect(() => {
     checkIsLoggedIn()
-  },[categoryId])
+  },[categoryId, countItems])
 
   const setCategoryIdHandler = categoryId => {
     setCategoryId(categoryId)
@@ -35,6 +36,7 @@ function App() {
         if(!addToCart.find(s => s.id === obj.id)){
           obj.quantity ++
           setAddToCart(currentItems => [...currentItems, obj])
+          setCountItems(items => items + 1)
         }else{
           addToCart.map(item => {
               if(item.id === obj.id){
@@ -42,6 +44,7 @@ function App() {
               }
           })
           setAddToCart(addToCart)
+          setCountItems(items => items + 1)
         }
   }
   const addToLocalStorge = () => {
@@ -90,7 +93,7 @@ function App() {
       {console.log('add to cart test: ' + addToCart)}
       <div className="container">
         <UserContext.Provider value={{isAuthenticated, handleLogin, logout}}>
-          <Nav addToCart={addToCart} />
+          <Nav countItems={countItems} />
         </UserContext.Provider>
         <div className="content-wrapper">
           <Switch>
