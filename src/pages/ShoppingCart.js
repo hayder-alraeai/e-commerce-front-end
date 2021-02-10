@@ -31,15 +31,17 @@ const ShoppingCart = ({addToCart, handleTotalItemsInNavBarAndTotalPrice, totalPr
             </div>
             <div className="leverans-wrapper">
                 <div className="adress-info">
-                <div className="total-price">Total price: {totalPrice} SEK</div>
-                    <form>
+                <div className="total-price"> {totalPrice ? 'Total price: ' + totalPrice + ' SEK' : 'Your shoppingscart is empty'}</div>
+                    {totalPrice ?                     <form>
                         <input type="text" placeholder="First name" />
                         <input type="text" placeholder="Last name" />
                         <input type="text" placeholder="Adress " />
                         <input type="number" placeholder="Zip code " />
                         <input type="text" placeholder="State " />
                         <input type="submit" value="Purchase" />
-                    </form>
+                    </form> :
+                        null
+                    }
                 </div>
             </div>
         </div>

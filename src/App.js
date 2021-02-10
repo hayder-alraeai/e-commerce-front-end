@@ -121,7 +121,6 @@ function App() {
 
   return (
     <div className="App">
-      {console.log('add to cart test: ' + addToCart)}
       <div className="container">
         <UserContext.Provider value={{isAuthenticated, handleLogin, logout}}>
           <Nav countItems={countItems} />
@@ -149,7 +148,7 @@ function App() {
                 <DisplayProductsByCategoryId handleAddToCart={handleAddToCart} categoryId={categoryId} />
             </Route>
             <Route exact path="/product/:id">
-                <ProductPage />
+                <ProductPage handleAddToCart={handleAddToCart} />
             </Route>
             <Route exact path="/shopping-cart">
                 <ShoppingCart 
