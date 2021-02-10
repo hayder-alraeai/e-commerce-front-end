@@ -24,6 +24,7 @@ function App() {
   const [addToCart, setAddToCart] = useState([])
   const [categoryId, setCategoryId] = useState('')
   const [countItems, setCountItems] = useState(0)
+  const [totalPrice, setTotalPrice] = useState(0)
   useEffect(() => {
     checkIsLoggedIn()
   },[categoryId, countItems])
@@ -31,10 +32,39 @@ function App() {
   const setCategoryIdHandler = categoryId => {
     setCategoryId(categoryId)
   }
+  const handleRemoveItemFromShoppingCart = item => {
+    setAddToCart(addToCart.filter(i => i.id !== item.id))
+  }
+  const handleTotalItemsInNavBarAndTotalPrice = (payload, obj) => {
+        if(payload === 'plus'){
+          addToCart.map(item => {
+            if(item.id === obj.id){
+              item.quantity ++
+            }
+        })
+        setAddToCart(addToCart)
+        setCountItems(items => items + 1)
+        setTotalPrice(items => items + obj.productPrice)
+      }else{
+          addToCart.map(item => {
+            if(item.id === obj.id){
+              item.quantity --
+            }
+          })
+          setAddToCart(addToCart)
+          setCountItems(items => items - 1)
+          setTotalPrice(items => items - obj.productPrice)
+          if(obj.quantity === 0){
+            handleRemoveItemFromShoppingCart(obj)
+          }
+        
+      }
+  }
 
   const handleAddToCart = obj => {
         if(!addToCart.find(s => s.id === obj.id)){
           obj.quantity ++
+          setTotalPrice(items => items + obj.productPrice)
           setAddToCart(currentItems => [...currentItems, obj])
           setCountItems(items => items + 1)
         }else{
@@ -43,6 +73,7 @@ function App() {
                 item.quantity ++
               }
           })
+          setTotalPrice(items => items + obj.productPrice)
           setAddToCart(addToCart)
           setCountItems(items => items + 1)
         }
@@ -121,7 +152,10 @@ function App() {
                 <ProductPage />
             </Route>
             <Route exact path="/shopping-cart">
-                <ShoppingCart addToCart={addToCart}  />
+                <ShoppingCart 
+                addToCart={addToCart} 
+                totalPrice={totalPrice} 
+                handleTotalItemsInNavBarAndTotalPrice={handleTotalItemsInNavBarAndTotalPrice} />
             </Route>
           </Switch>
           </div>

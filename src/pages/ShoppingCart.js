@@ -1,17 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import '../styles/ShoppingCart.css'
 import {backendPath} from '../config/Config'
-const ShoppingCart = ({addToCart}) => {
-    const [totalPrice, setTotalPrice] = useState(0)
-    const [count, setCount] = useState(0)
-    useEffect(() => {
-        calcTotalPrice()
-    },[])
-    const calcTotalPrice = () => {
-       for(let i = 0; i < addToCart.length; i ++){
-            setTotalPrice(price => price + addToCart[i].productPrice)
-       }
-    }
+const ShoppingCart = ({addToCart, handleTotalItemsInNavBarAndTotalPrice, totalPrice}) => {
+
+
     return(
         <div className="shopping-cart-body">
             <div className="items-wrapper" >
@@ -24,11 +16,13 @@ const ShoppingCart = ({addToCart}) => {
                                 </div>
                                 <div className="item-body">
                                     <img src={backendPath + "/api/images/" + item.imageId} />
-                                    <p>{item.productPrice}</p>
-                                    <p className="minus" onClick={() => setCount(c => c - 1)}>-</p>
-                                    <p>{item.quantity}</p>
-                                    <p className="plus" onClick={() => setCount(c => c + 1)}>+</p>
-                                    <p>{item.productPrice * 2}</p>
+                                    <div>{item.productPrice} SEK</div>
+                                    <div className="quantity-wrapper">
+                                        <div className="minus" onClick={() => handleTotalItemsInNavBarAndTotalPrice('minus', item)}>-</div>
+                                        <div className="quantity">{item.quantity}</div>
+                                        <div className="plus" onClick={() => handleTotalItemsInNavBarAndTotalPrice('plus', item)}>+</div>
+                                    </div>
+                                    <div>{item.productPrice * item.quantity} SEK</div>
                                 </div>
                             </div>
                         )
@@ -37,8 +31,10 @@ const ShoppingCart = ({addToCart}) => {
             </div>
             <div className="leverans-wrapper">
                 <div className="adress-info">
-                <div className="total-price">Total price: {totalPrice}</div>
+                <div className="total-price">Total price: {totalPrice} SEK</div>
                     <form>
+                        <input type="text" placeholder="First name" />
+                        <input type="text" placeholder="Last name" />
                         <input type="text" placeholder="Adress " />
                         <input type="number" placeholder="Zip code " />
                         <input type="text" placeholder="State " />

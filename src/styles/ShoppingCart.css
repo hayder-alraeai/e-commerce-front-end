@@ -21,18 +21,33 @@
     width: 150px;
     padding: 2rem;
 }
-.shopping-cart-body .items p{
-    padding: 2rem;
+.shopping-cart-body .items div{
+    padding: 0.4rem;
+}
+.quantity-wrapper{
+    display: flex;
+    align-items: center;
+    padding: 0;
+
+}
+.quantity{
+    padding: 1rem;
 }
 .plus{
+    padding: 0.3rem;
+    font-size: 15pt;
     cursor: pointer;
     font-weight: bolder;
     color: brown;
+    margin-right: 2rem;
 }
 .minus{
+    padding: 0.3rem;
+    font-size: 15pt;
     cursor: pointer;
     font-weight: bolder;
     color: brown;
+    margin-left: 2rem;
 }
 @media only screen and (max-width: 1300px){
     .shopping-cart-body{

@@ -40,6 +40,9 @@
     align-items: center;
 }
 @media only screen and (max-width: 1300px){
+    .footer-body-upper{
+        height: auto;
+    }
     .footer-body-upper p{
         max-width: 100%;
         margin: auto;
