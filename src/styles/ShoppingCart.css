@@ -1,6 +1,6 @@
 
 .shopping-cart-body{
-    border: 1px solid black;
+    border: 1px solid #ccc;
     width: 80%;
     padding: 2rem;
     margin-top: 2rem;
@@ -10,7 +10,7 @@
 
 }
 .shopping-cart-body .items .item-body{
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid #ccc;
     display: flex;
     flex-direction: row;
     justify-content: center;

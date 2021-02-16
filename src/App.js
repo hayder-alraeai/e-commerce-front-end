@@ -28,7 +28,11 @@ function App() {
   useEffect(() => {
     checkIsLoggedIn()
   },[categoryId, countItems])
-
+  const cleanShoppingCart = () => {
+    setAddToCart([]) 
+    setCountItems(0)
+    setTotalPrice(0)
+  }
   const setCategoryIdHandler = categoryId => {
     setCategoryId(categoryId)
   }
@@ -154,7 +158,8 @@ function App() {
                 <ShoppingCart 
                 addToCart={addToCart} 
                 totalPrice={totalPrice} 
-                handleTotalItemsInNavBarAndTotalPrice={handleTotalItemsInNavBarAndTotalPrice} />
+                handleTotalItemsInNavBarAndTotalPrice={handleTotalItemsInNavBarAndTotalPrice}
+                cleanShoppingCart={cleanShoppingCart} />
             </Route>
           </Switch>
           </div>

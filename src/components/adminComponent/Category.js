@@ -42,6 +42,10 @@ const Category = (props) => {
           })
         .catch(error => console.log(error))
     }
+    const convertDate = d => {
+      let da = new Date(d);
+      return da.toLocaleDateString() + ' ' + da.getHours() + ':' + da.getMinutes()
+    }
     return(
             <div className="category-wrapper">
                 <Modal 
@@ -62,7 +66,7 @@ const Category = (props) => {
                     {props.obj.categoryName}
                 </div>
                 <div className="category-item">
-                    {props.obj.timeStamp}
+                    {convertDate(props.obj.timeStamp)}
                 </div>
                 <div onClick={() => {showModal(props.obj.categoryName)}} className="category-button update-color">
                     <EditOutlined />

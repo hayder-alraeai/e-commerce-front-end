@@ -4,6 +4,10 @@
 .content-style{
     width: 100%;
 }
+.carousel-body img{
+  width: 100%;
+  height: 400px;
+}
 @media only screen and (max-width: 1300px){
     .carousel-body{
       display: none;

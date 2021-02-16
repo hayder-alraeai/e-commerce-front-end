@@ -23,7 +23,7 @@ const DisplayProducts = ({handleAddToCart}) => {
                     return(
                         <div className="child" key={item.id}>
                             {/* <ProductCard obj={item} handleAddToCart={handleAddToCart}  /> */}
-                            <ProductCard2 obj={item} handleAddToCart={handleAddToCart} />
+                            <ProductCard2 obj={item}  handleAddToCart={handleAddToCart} />
                         </div>
                         
                     )

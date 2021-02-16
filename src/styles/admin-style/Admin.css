@@ -35,6 +35,7 @@
 .admin-content-wrapper .admin-aside-button-wrapper ul{
     text-align: left;
     padding-left: 0;
+    border-bottom: 1px solid #ccc;
     
 }
 .admin-content-wrapper .admin-aside-button-wrapper ul li{
@@ -42,7 +43,9 @@
     list-style: none;
     background-color: #eeeeee;
     padding: 1rem;
-    margin-bottom: 0.1rem;
+    /* margin-bottom: 0.1rem; */
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #fff;
 }
 .admin-content-wrapper .admin-aside-button-wrapper ul li:hover{
     background-color: #c63736;

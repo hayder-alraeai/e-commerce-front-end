@@ -1,0 +1,53 @@
+.order-card-body{
+    display: grid;
+    grid-template-columns: 40% 60%;
+}
+.order-card-customer-info{
+    text-align: left;
+}
+.order-card-customer-info div{
+    padding: 0.4rem;
+    background-color: #bbb;
+    color: #555;
+    border-bottom: 2px solid white;
+    font-weight: bolder;
+}
+.order-card-customer-info div>span{
+    color: white;
+}
+.order-card-products{
+    text-align: left;
+
+}
+ img{
+    width: 50px;
+}
+table{
+    width: 100%;
+}
+table th{
+    background-color: #79cbc6;
+    color: white;
+    border-left: 1px solid white;
+    padding-left: 0.4rem;
+}
+table td{
+    border-left: 1px solid white;
+    width: 25%;
+    padding-left: 0.4rem;
+}
+table tr:nth-child(even){
+    background-color: #eee;
+}
+table tr:nth-child(odd){
+    background-color: #ddd;
+}
+table td:nth-child(1){
+    width: 10%;
+}
+table td:nth-child(3){
+    width: 10%;
+}
+table td:nth-child(4){
+    width: 5%;
+}

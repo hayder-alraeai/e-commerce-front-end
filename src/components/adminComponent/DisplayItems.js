@@ -42,7 +42,7 @@ const DisplayItems = ({token}) => {
                                 <div className="desc">{item.productDescription}</div>
                                 <div>{item.category.categoryName}</div>
                                 <div>{item.productPrice}</div>
-                                <div>Created</div>
+                                <div>{new Date(item.creationTime).toLocaleDateString()}</div>
                                 <div className="item-button update-color"><UpdateProduct obj={item} token={token} /> </div>
                                 <div className="item-button delete-color" onClick={() => {
                                     if (window.confirm("You are about removing a product! Are you sure?")) {

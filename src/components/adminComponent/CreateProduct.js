@@ -40,7 +40,7 @@ const CreateProduct = ({token}) => {
             <Modal title="Add new product" visible={isModalVisible} onOk={handleOk} onCancel={handleCancel}>
                 <form>
                     <textarea placeholder='Description ...' value={description} onChange={e => setDescription(e.target.value)} />
-                    <input type='text' placeholder='Price' value={price} onChange={e => setPrice(e.target.value)} />
+                    <input type='number' placeholder='Price' value={price} onChange={e => setPrice(e.target.value)} />
                     <input type="file" onChange={e => setImage(e.target.files[0])} required />
                     <select value={category} onChange={e => setCategory(e.target.value)} defaultValue='Choose Category' required='true'>
                     {isLoading ? <p>No data</p> : 

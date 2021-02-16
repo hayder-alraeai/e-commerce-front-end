@@ -36,7 +36,7 @@
     height: 70%;
     background-color: #eeeeee;
     color: black;
-    font-weight: bolder;
+    /* font-weight: bolder; */
     margin-bottom: 0.1rem;
 }
 .display-items-content-body div{
