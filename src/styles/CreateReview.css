@@ -1,0 +1,32 @@
+.create-review-body{
+    width: 60%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+}
+.create-review-body input{
+    margin-bottom: 0.5rem;
+    border: 0;
+    padding: 0.5rem;
+    background-color: #eee;
+}
+.create-review-body textarea{
+    margin-top: 0.5rem;
+    border: 0;
+    padding: 0.5rem;
+    background-color: #eee;
+}
+.create-review-body button{
+    cursor: pointer;
+    margin-top: 0.5rem;
+    border: 0;
+    padding: 0.5rem;
+    background-color: #eee;
+    font-size: 12pt;
+    font-weight: bolder;
+    color: #eee;
+    background-color: #c63736;
+}
+.rates{
+    color: #c63736;
+}

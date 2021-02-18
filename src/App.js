@@ -152,7 +152,7 @@ function App() {
                 <DisplayProductsByCategoryId handleAddToCart={handleAddToCart} categoryId={categoryId} />
             </Route>
             <Route exact path="/product/:id">
-                <ProductPage handleAddToCart={handleAddToCart} />
+                <ProductPage handleAddToCart={handleAddToCart} isAuthenticated={isAuthenticated} token={token} />
             </Route>
             <Route exact path="/shopping-cart">
                 <ShoppingCart 

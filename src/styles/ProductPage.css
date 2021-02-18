@@ -63,3 +63,14 @@
     font-size: 20pt;
     color: #c63736;
 }
+.Create-review-button{
+    cursor: pointer;
+    width: 20%;
+    margin: 2rem auto;
+    font-size: 16pt;
+    color:#c63736 ;
+    opacity: 0.8;
+}
+.Create-review-button:hover{
+    opacity: 1;
+}

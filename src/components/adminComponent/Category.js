@@ -31,7 +31,7 @@ const Category = (props) => {
         })
         .then(response => {
             if (response.ok) {
-              props.handleMessage('Category ' + categoryName + ' has been updated')
+              props.handleMessage('Category ' + categoryName + ' has been updated', 'success')
             }else{
               if(response.status === 403){
                 alert('You have been loggedout')

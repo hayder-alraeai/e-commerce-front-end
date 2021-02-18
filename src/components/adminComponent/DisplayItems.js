@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import {getProducts} from '../../apies/ProductApiFunctions'
 import 'antd/dist/antd.css';
+import { Alert } from 'antd';
 import LoadingIcon from '../LoadingIcon'
 import '../../styles/admin-style/DisplayItems.css'
 import '../../styles/General.css'
@@ -12,10 +13,16 @@ import UpdateProduct from './UpdateProduct';
 const DisplayItems = ({token}) => {
     const [products, setProducts] = useState([])
     const [isLoading, setIsLoading] = useState(true)
+    const [msgStyle, setMsgStyle] = useState('')
+    const [message, setMessage] = useState('')
     useEffect(() => {
         getProducts(setProducts, setIsLoading)
     }, [products])
 
+    const handleMessage = (msg, MsgStyle) => {
+        setMessage(msg)
+        setMsgStyle(MsgStyle)
+    }
     if(isLoading){
         return(
             <LoadingIcon />
@@ -23,7 +30,8 @@ const DisplayItems = ({token}) => {
     }
     return(
         <div className="display-items-body">
-            <CreateProduct token={token} />
+            {message && msgStyle ? <Alert className="message" message={message} type={msgStyle} showIcon /> : null}
+            <CreateProduct handleMessage={handleMessage} token={token} />
             <div className="display-items-content">
                 <div className="display-items-content-header">
                     <div className="img">Image</div>

@@ -4,7 +4,7 @@ import { Modal } from 'antd';
 import {addProduct} from '../../apies/ProductApiFunctions'
 import {getCategories} from '../../apies/ApiFunctions'
 import '../../styles/admin-style/CreateProduct.css'
-const CreateProduct = ({token}) => {
+const CreateProduct = ({token, handleMessage}) => {
     const [categories, setCategories] = useState([])
     const [isLoading, setIsLoading] = useState(true)
     const [isModalVisible, setIsModalVisible] = useState(false);
@@ -25,7 +25,8 @@ const CreateProduct = ({token}) => {
         data.append('categoryId', category)
         data.append('productDescription', description)
         data.append('productPrice', price)
-        addProduct(data, token)
+        addProduct(data, token, handleMessage)
+        setIsModalVisible(false)
     }
     const handleOk = () => {
       setIsModalVisible(false);
@@ -37,7 +38,7 @@ const CreateProduct = ({token}) => {
     return(
         <div>
             <CreateButton onClick={showModal} text="Add new Product" />
-            <Modal title="Add new product" visible={isModalVisible} onOk={handleOk} onCancel={handleCancel}>
+            <Modal title="Add new product" footer={false} visible={isModalVisible} onOk={handleOk} onCancel={handleCancel}>
                 <form>
                     <textarea placeholder='Description ...' value={description} onChange={e => setDescription(e.target.value)} />
                     <input type='number' placeholder='Price' value={price} onChange={e => setPrice(e.target.value)} />

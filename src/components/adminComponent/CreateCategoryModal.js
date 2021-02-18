@@ -28,7 +28,7 @@ const CreateCategoryModalen = ({token, handleMessage}) => {
         })
         .then(response => {
           if (response.ok) {
-            handleMessage('Category ' + name + ' has been added')
+            handleMessage('Category ' + name + ' has been added', 'success')
           }else{
             if(response.status === 403){
               alert('You have been loggedout')

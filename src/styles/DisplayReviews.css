@@ -1,0 +1,51 @@
+.display-reviews-body{
+    width: 60%;
+    margin: 2rem auto;
+    padding: 1rem;
+}
+.reviews-wrapper{
+    /* border: 1px solid black; */
+    position: relative;
+    margin-top: 1rem;
+    padding: 1rem;
+    text-align: left;
+    background-color: #f1f1f1;
+    color: #666;
+}
+.reviews-name{
+    font-weight: bolder;
+    font-size: 12pt;
+    font-family: sans-serif;
+}
+.reviews-date{
+    text-align: right;
+    font-style: italic;
+    font-size: 10pt;
+    color: #999;
+}
+.reviews-comment{
+    margin-left: 1rem;
+    overflow: hidden;
+}
+.name-rate-wrapper{
+    display: flex;
+    align-items: center;
+}
+.display-rates{
+    width: 100%;
+    text-align: right;
+    color: #c63736;
+}
+.display-reviews-body .reviews-wrapper .delete-review-icon{
+    position: absolute;
+    left: 0;
+    top: 0;
+    margin-top: -15px;
+    font-size: 20pt;
+    color: #c63736;
+    opacity: 0.5;
+    cursor: pointer;
+}
+.display-reviews-body .reviews-wrapper .delete-review-icon:hover{
+    opacity: 1;
+}

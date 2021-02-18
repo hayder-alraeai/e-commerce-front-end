@@ -14,7 +14,7 @@ export const getProductsByCategoryId = async(setProducts, setIsLoading, category
     .then(() => setIsLoading(false))
     .catch(error => console.log(error))
 }
-export const addProduct = async(data, token) => {
+export const addProduct = async(data, token, handleMessage) => {
     await fetch(backendPath + '/api/products', {
         method: 'POST',
         headers: {
@@ -24,7 +24,7 @@ export const addProduct = async(data, token) => {
     })
     .then(response => {
         if(response.ok){
-            alert('the item has been saved')
+            handleMessage('The item has been saved', 'success')
         }else{
             alert('something went wrong!' + response.statusText)
             console.log(response.text())

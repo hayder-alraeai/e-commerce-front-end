@@ -19,7 +19,7 @@ const ProductCard2 = ({obj, handleAddToCart, addToLocalStorge}) => {
                 <div className="card-category">{obj.category.categoryName}</div>
                 <div className="card-description">{obj.productDescription}</div>
                 <div className="card-price">{obj.productPrice + " SEK"}</div>
-                <div className="card-rates"><Rate style={{color:'#c63736', fontSize:15, padding:0}} value={3} disabled  /></div>
+                <div className="card-rates"><Rate style={{color:'#c63736', fontSize:15, padding:0}} value={obj.rates} disabled  /></div>
             </div>
             <div className="card-footer">
                 <HeartOutlined className="heart" />
