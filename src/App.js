@@ -16,6 +16,8 @@ import {  isExpired } from "react-jwt";
 import ProductPage from './pages/ProductPage';
 import Footer from './components/Footer';
 import ShoppingCart from './pages/ShoppingCart';
+import {getProducts} from '../src/apies/ProductApiFunctions'
+import Search from '../src/pages/Search';
 function App() {
   let history = useHistory()
   const [token, setToken] = useState('')
@@ -25,6 +27,9 @@ function App() {
   const [categoryId, setCategoryId] = useState('')
   const [countItems, setCountItems] = useState(0)
   const [totalPrice, setTotalPrice] = useState(0)
+  const [searchedItems, setSearchedItems] = useState([])
+  const [products, setProducts] = useState([])
+  const [isLoading, setIsLoading] = useState(true)
   useEffect(() => {
     checkIsLoggedIn()
   },[categoryId, countItems])
@@ -32,6 +37,14 @@ function App() {
     setAddToCart([]) 
     setCountItems(0)
     setTotalPrice(0)
+  }
+  const searchHandler = sw => {
+    getProducts(setProducts, setIsLoading)
+    const regex = new RegExp(sw + "*")
+    let si = products.filter(item => {
+        return regex.test(item.productDescription)
+    })
+    setSearchedItems(si)
   }
   const setCategoryIdHandler = categoryId => {
     setCategoryId(categoryId)
@@ -127,7 +140,7 @@ function App() {
     <div className="App">
       <div className="container">
         <UserContext.Provider value={{isAuthenticated, handleLogin, logout}}>
-          <Nav countItems={countItems} />
+          <Nav countItems={countItems} searchHandler={searchHandler} />
         </UserContext.Provider>
         <div className="content-wrapper">
           <Switch>
@@ -138,7 +151,7 @@ function App() {
           <Switch>
             <Route exact path="/" >
             <Categories setCategoryIdHandler={setCategoryIdHandler} /> 
-                <Home handleAddToCart={handleAddToCart} />
+                <Home handleAddToCart={handleAddToCart} searchedItems={searchedItems} />
             </Route>
             <Route exact path="/product">
             <Categories setCategoryIdHandler={setCategoryIdHandler}/> 
@@ -153,6 +166,9 @@ function App() {
             </Route>
             <Route exact path="/product/:id">
                 <ProductPage handleAddToCart={handleAddToCart} isAuthenticated={isAuthenticated} token={token} />
+            </Route>
+            <Route exact path="/search">
+                <Search searchedItems={searchedItems} handleAddToCart={handleAddToCart} />
             </Route>
             <Route exact path="/shopping-cart">
                 <ShoppingCart 

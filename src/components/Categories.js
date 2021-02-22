@@ -14,7 +14,6 @@ const Categories = ({setCategoryIdHandler}) => {
     return(
         <div className="categories-body">
           <div className="categories-header">All Categories</div>
-          {console.log(categories)}
           <ul>
             {!isLoading? categories.map(item => {
               return(

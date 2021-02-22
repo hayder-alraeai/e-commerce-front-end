@@ -6,15 +6,12 @@ import {getProducts} from '../apies/ProductApiFunctions'
 import LoadingIcon from './LoadingIcon'
 import ProductCard2 from './ProductCard2'
 
-const DisplayProducts = ({handleAddToCart}) => {
+const DisplayProducts = ({handleAddToCart, searchedItems}) => {
     const [productsList, setProductslist] = useState([])
     const [isLoading, setIsloading] = useState(true)
     useEffect(() => {
-        getProducts(setProductslist, setIsloading)
-        
-    }, [productsList])
-
-    
+        getProducts(setProductslist, setIsloading) 
+    }, [])
     return(
         <div className="display-products-body">
             {/* <p>this is the display component!</p> */}

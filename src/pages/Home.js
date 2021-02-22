@@ -4,7 +4,7 @@ import '../styles/App.css'
 import {CheckOutlined} from '@ant-design/icons'
 import Carousel from '../components/Carousel'
 import DisplayProducts from '../components/DisplayProducts'
-const Home = ({handleAddToCart}) => {
+const Home = ({handleAddToCart, searchedItems}) => {
     return(
         <div className="home-body">
             <div className="home-upper-text">
@@ -12,7 +12,7 @@ const Home = ({handleAddToCart}) => {
                 <div><p><CheckOutlined style={{color: 'green'}}  /><span>some text here</span></p></div>
             </div>
             <Carousel />
-            <DisplayProducts handleAddToCart={handleAddToCart}  />
+            <DisplayProducts handleAddToCart={handleAddToCart} searchedItems={searchedItems} />
         </div>
     )
 }

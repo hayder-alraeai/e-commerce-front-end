@@ -17,7 +17,7 @@ const ProductPage = ({handleAddToCart, isAuthenticated, token}) => {
 
     useEffect(() => {
         getProductById(setProduct, setIsLoading, id)
-    }, [])
+    }, [product])
     
     if(isLoading){
         return(

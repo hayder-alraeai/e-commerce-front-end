@@ -31,12 +31,10 @@
     justify-content: center;
     align-items: center;
     align-content: stretch;
-    flex-wrap: wrap;
     width: 100%;
     height: 70%;
     background-color: #eeeeee;
     color: black;
-    /* font-weight: bolder; */
     margin-bottom: 0.1rem;
 }
 .display-items-content-body div{
@@ -62,9 +60,8 @@
     cursor: pointer;
     font-size: 20pt;
 }
+
 .item-button:hover{
     background-color: #c63736;
     color: white;
-    /* background-color: #ccc;
-    border-radius: 100%; */
 }

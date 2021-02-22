@@ -47,9 +47,8 @@ const CreateCategoryModalen = ({token, handleMessage}) => {
                 title="Create a new Category"
                 visible={isModalVisible} 
                 onOk={handleOk} 
-                bodyStyle={{backgroundColor:'#ccc'}}
                 onCancel={handleCancel}>
-                    <input 
+                    <input
                         type="text" 
                         placeholder="Category name ..."
                         onChange={e => setCategoryName({value:e.target.value})}
