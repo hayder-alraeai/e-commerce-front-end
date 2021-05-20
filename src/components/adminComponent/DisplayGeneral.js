@@ -40,6 +40,7 @@ const DisplayGeneral = ({token}) => {
         data.append('image', image)
         addCarouselImage(data, token)
         setIsAddImageModalOpen(false)
+        getCarouselImages(setCarouselImages, setIsLoading)
 
     }
     return(
