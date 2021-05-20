@@ -75,6 +75,7 @@
 @media only screen and (max-width: 900px){
     .card-body{
         width: 200px;
+        border-bottom: 20px solid #c63736;
     }
   }
 @media only screen and (max-width: 600px){
@@ -84,5 +85,6 @@
         margin: 1rem 0;
         padding: 0.4rem;
         width: 100%;
+        border-bottom: 20px solid #c63736;
     }
 }
