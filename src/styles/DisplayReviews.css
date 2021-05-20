@@ -49,3 +49,10 @@
 .display-reviews-body .reviews-wrapper .delete-review-icon:hover{
     opacity: 1;
 }
+@media only screen and (max-width: 600px){
+    .display-reviews-body{
+        width: 100%;
+        margin: 2rem auto;
+        padding:0 10px;
+    }
+}

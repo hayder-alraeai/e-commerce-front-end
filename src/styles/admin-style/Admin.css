@@ -57,9 +57,22 @@
         flex-direction: column;
     }
     .admin-content-wrapper .admin-aside{
-        width: 100%;
+        display: none;
+        width: 40%;
+    }
+    .admin-content-wrapper .admin-aside.active{
+        display: block;
+        width: 40%;
+        position: absolute;
+        left: 0;
+        height: auto;
+        z-index: 1;
     }
     .admin-content-wrapper .admin-content{
         width: 100%;
+    }
+    .admin-content-wrapper .admin-aside{
+        width: 20%;
+        border-right:0;
     }
 }

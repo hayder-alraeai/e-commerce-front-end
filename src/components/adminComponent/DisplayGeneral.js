@@ -22,7 +22,7 @@ const DisplayGeneral = ({token}) => {
         getProducts(setProducts, setIsLoading)
         getOrders(setOrders, setIsLoading, token)
         getCarouselImages(setCarouselImages, setIsLoading)
-    }, [carouselImages])
+    }, [])
 
     const handleDeleteImage = id => {
         if(window.confirm("You are about removing this image! Are you sure?")){

@@ -15,7 +15,7 @@ const DisplayCategories = ({token}) => {
 
     useEffect(() => {
       getCategories(setCategories, setIsLoading)
-    }, [categories, message])
+    }, [])
 
     const handleMessage = (msg, MsgStyle) => {
         setMessage(msg)

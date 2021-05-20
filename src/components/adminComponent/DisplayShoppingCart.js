@@ -12,7 +12,7 @@ const DisplayShoppingCart = ({token}) => {
     const [isLoading, setIsLoading] = useState(true)
     useEffect(() => {
         getOrders(setOrders, setIsLoading, token)
-    }, [orders])
+    }, [])
     const converDate = d => {
         let date =  new Date(d)
         return date.toLocaleDateString()  + ' ' + date.getHours() + ':' + date.getMinutes()

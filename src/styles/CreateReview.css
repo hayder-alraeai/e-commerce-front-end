@@ -30,3 +30,12 @@
 .rates{
     color: #c63736;
 }
+@media only screen and (max-width: 600px){
+    .create-review-body{
+        width: 100%;
+        margin: auto;
+        display: flex;
+        flex-direction: column;
+        padding: 0 10px;
+    }
+}

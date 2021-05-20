@@ -17,7 +17,7 @@ const DisplayItems = ({token}) => {
     const [message, setMessage] = useState('')
     useEffect(() => {
         getProducts(setProducts, setIsLoading)
-    }, [products])
+    }, [])
 
     const handleMessage = (msg, MsgStyle) => {
         setMessage(msg)

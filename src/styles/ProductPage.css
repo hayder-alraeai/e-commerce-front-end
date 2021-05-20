@@ -74,3 +74,55 @@
 .Create-review-button:hover{
     opacity: 1;
 }
+@media only screen and (max-width: 1024px){
+    .product-body{
+        grid-template-columns: 100%;
+    }
+    .product-info{
+        display: flex;
+        flex-direction: column;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .button-wrapper{
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+@media only screen and (max-width: 600px){
+    .product-body{
+            width: 100%;
+            grid-template-columns: 100%;
+            padding: 0 10px;   
+    }
+    .product-info{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: #f6f6f6;
+        padding: 5px 0 30px 0;
+    }
+    .button-wrapper{
+        margin-top: 10px;
+        margin-left: 0;
+        position: relative;
+        display: block;
+        justify-content: center;
+        align-items: center;
+        bottom: auto;
+        left: auto;
+    }
+    .Create-review-button{
+        cursor: pointer;
+        width: 100%;
+        margin: 2rem auto;
+        font-size: 16pt;
+        color:#c63736 ;
+        opacity: 0.8;
+    }
+}

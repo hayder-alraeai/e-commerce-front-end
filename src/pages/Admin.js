@@ -7,7 +7,7 @@ import LoadingIcon from '../components/LoadingIcon'
 import DisplayShoppingCart from '../components/adminComponent/DisplayShoppingCart'
 import DisplayGeneral from '../components/adminComponent/DisplayGeneral'
 
-const Admin = ({token}) => {
+const Admin = ({token, menuBarToggle}) => {
     const [category, setCategory] = useState('general')
     const [localToken, setLocalToken] = useState('')
     useEffect(() => {
@@ -40,7 +40,7 @@ const Admin = ({token}) => {
                 <div className="text">Welcome to Control panel</div>
             </div>
             <div className="admin-content-wrapper">
-                <div className="admin-aside">
+                <div className={menuBarToggle ? "admin-aside active" : "admin-aside"}>
                     <div className="admin-aside-button-wrapper">
                         <ul>
                             <li onClick={() => setCategory('general')}>General</li>

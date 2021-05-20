@@ -142,14 +142,14 @@ function App() {
 
   return (
     <div className="App">
-      <div className="container">
+      <div className="container" onClick={() => menuBarToggle ? setMenuBarToggle(false) : null}>
         <UserContext.Provider value={{isAuthenticated, handleLogin, logout}}>
-          <Nav countItems={countItems} searchHandler={searchHandler} togleMenuBarHandler={togleMenuBarHandler} />
+          <Nav countItems={countItems} searchHandler={searchHandler} togleMenuBarHandler={togleMenuBarHandler} menuBarToggle={menuBarToggle}/>
         </UserContext.Provider>
         <div className="content-wrapper">
           <Switch>
           <AuthRoute exact path="/admin" isAuthenticated={isAuthenticated} >
-            <Admin token={token} />
+            <Admin token={token} menuBarToggle={menuBarToggle} />
           </AuthRoute>
           </Switch>
           <Switch>
@@ -169,6 +169,7 @@ function App() {
                 <DisplayProductsByCategoryId handleAddToCart={handleAddToCart} categoryId={categoryId} />
             </Route>
             <Route exact path="/product/:id">
+                <Categories setCategoryIdHandler={setCategoryIdHandler} menuBarToggle={menuBarToggle} />
                 <ProductPage handleAddToCart={handleAddToCart} isAuthenticated={isAuthenticated} token={token} />
             </Route>
             <Route exact path="/search">
