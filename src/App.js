@@ -19,6 +19,7 @@ import ShoppingCart from './pages/ShoppingCart';
 import {getProducts} from '../src/apies/ProductApiFunctions'
 import Search from '../src/pages/Search';
 function App() {
+  const [menuBarToggle, setMenuBarToggle] = useState(false) 
   let history = useHistory()
   const [token, setToken] = useState('')
   const [isAuthenticated, setIsAuthenticated] = useState(false)
@@ -37,6 +38,9 @@ function App() {
     setAddToCart([]) 
     setCountItems(0)
     setTotalPrice(0)
+  }
+  const togleMenuBarHandler = () => {
+    setMenuBarToggle(!menuBarToggle)
   }
   const searchHandler = sw => {
     getProducts(setProducts, setIsLoading)
@@ -140,7 +144,7 @@ function App() {
     <div className="App">
       <div className="container">
         <UserContext.Provider value={{isAuthenticated, handleLogin, logout}}>
-          <Nav countItems={countItems} searchHandler={searchHandler} />
+          <Nav countItems={countItems} searchHandler={searchHandler} togleMenuBarHandler={togleMenuBarHandler} />
         </UserContext.Provider>
         <div className="content-wrapper">
           <Switch>
@@ -150,18 +154,18 @@ function App() {
           </Switch>
           <Switch>
             <Route exact path="/" >
-            <Categories setCategoryIdHandler={setCategoryIdHandler} /> 
+            <Categories setCategoryIdHandler={setCategoryIdHandler} menuBarToggle={menuBarToggle} /> 
                 <Home handleAddToCart={handleAddToCart} searchedItems={searchedItems} />
             </Route>
             <Route exact path="/product">
-            <Categories setCategoryIdHandler={setCategoryIdHandler}/> 
+            <Categories setCategoryIdHandler={setCategoryIdHandler} menuBarToggle={menuBarToggle} /> 
                 <Product />
             </Route>
             <Route exact path="/login">
                 <Login handleLogin={handleLogin} isAuthenticated={isAuthenticated} message={message} />
             </Route>
             <Route exact path="/categories/:id">
-            <Categories setCategoryIdHandler={setCategoryIdHandler}/>
+            <Categories setCategoryIdHandler={setCategoryIdHandler} menuBarToggle={menuBarToggle} />
                 <DisplayProductsByCategoryId handleAddToCart={handleAddToCart} categoryId={categoryId} />
             </Route>
             <Route exact path="/product/:id">

@@ -59,12 +59,27 @@ a {
   padding: 0;
   font-size: 30pt;
 }
+.bars{
+  display: none;
+  border: 1px solid black;
+  width: auto;
+  width: 5vmin;
+  justify-content: center;
+  padding: 10px 20px;
+  margin-left: 10px;
+  font-size: 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
 @media only screen and (max-width: 1300px){
   .header-content{
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
+  }
+  .bars{
+    display: flex;
   }
   .hamburgar{
     display: block;
@@ -74,5 +89,15 @@ a {
   }
   .header-content .shopping-cart{
     text-align: right;
+    margin-right: 10px;
+  }
+}
+@media (max-width : 600px){
+  .bars{
+    display: flex;
+  }
+  .header-content .shopping-cart{
+    text-align: right;
+    margin-right: 10px;
   }
 }

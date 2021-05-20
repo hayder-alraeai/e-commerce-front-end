@@ -12,16 +12,28 @@
     flex-wrap: wrap; */
     display: grid;
     grid-template-columns: 25% 25% 25% 25%;
+    row-gap: 5px;
+    column-gap: 5px;
+    
 }
 .child{
     /* flex: 1 0 21%; */
 }
-@media only screen and (max-width: 1300px){
+@media only screen and (max-width: 1024px){
     .display-products{
+        grid-template-columns: 50% 50%;
+    }
+    /* .display-products{
         display: block;
     }
     .child{
         display: flex;
         justify-content: center;
+    } */
+}
+@media only screen and (max-width: 600px){
+    .display-products{
+        display: grid;
+        grid-template-columns: 100%;
     }
 }

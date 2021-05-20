@@ -1,9 +1,8 @@
 .card-body{
     position: relative;
     border: 1px solid #eee;
-    margin: 1rem;
     padding: 0.4rem;
-    width: 200px;
+    width: 100%;
     height: 350px;
     overflow: hidden;
 }
@@ -72,4 +71,18 @@
 .eye:hover{
     font-size: 25pt;
     color: #c63736;
+}
+@media only screen and (max-width: 900px){
+    .card-body{
+        width: 200px;
+    }
+  }
+@media only screen and (max-width: 600px){
+    .card-body{
+        position: relative;
+        border: 1px solid #eee;
+        margin: 1rem 0;
+        padding: 0.4rem;
+        width: 100%;
+    }
 }

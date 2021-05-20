@@ -19,17 +19,19 @@ const Carousel = () => {
         background: '#364d79',
       };
     return(
+      <div className='carosel-wrapper'>
         <Carousel1 autoplay className="carousel-body" >
-            {isLoading ? <LoadingIcon /> :
-              carouselImages.map(image => {
-                return(
-                  <div>
-                      <img className="content-style" src={backendPath + "/api/images/" + image.carouselImageId}  alt="reklam1" />
-                  </div>
-                )
-              })
-            }
-      </Carousel1>
+              {isLoading ? <LoadingIcon /> :
+                carouselImages.map(image => {
+                  return(
+                    <div>
+                        <img className="content-style"  src={backendPath + "/api/images/" + image.carouselImageId}  alt="reklam1" />
+                    </div>
+                  )
+                })
+              }
+        </Carousel1>
+      </div>
     )
 }
 export default Carousel
