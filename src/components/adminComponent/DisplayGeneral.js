@@ -24,21 +24,23 @@ const DisplayGeneral = ({token}) => {
         getCarouselImages(setCarouselImages, setIsLoading)
     }, [])
 
-    const handleDeleteImage = id => {
+    const handleDeleteImage = async id => {
         if(window.confirm("You are about removing this image! Are you sure?")){
-            deleteCarouselImage(id, token)
+            await deleteCarouselImage(id, token)
+            getCarouselImages(setCarouselImages, setIsLoading)
         }   
     }
-    const handleUpdateImage = () => {
+    const handleUpdateImage = async() => {
         let data = new FormData()
         data.append('image', image)
-        updateCarouselImage(data, carouselImageId, token)
+        await updateCarouselImage(data, carouselImageId, token)
         setIsUpdateImageModalOpen(false)
+        getCarouselImages(setCarouselImages, setIsLoading)
     }
-    const handleAddImage = () => {
+    const handleAddImage = async() => {
         let data = new FormData();
         data.append('image', image)
-        addCarouselImage(data, token)
+        await addCarouselImage(data, token)
         setIsAddImageModalOpen(false)
         getCarouselImages(setCarouselImages, setIsLoading)
 

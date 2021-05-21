@@ -76,7 +76,7 @@ const ShoppingCart = ({addToCart, handleTotalItemsInNavBarAndTotalPrice, totalPr
                                         <div className="quantity">{item.quantity}</div>
                                         <div className="plus" onClick={() => handleTotalItemsInNavBarAndTotalPrice('plus', item)}>+</div>
                                     </div>
-                                    <div>{item.productPrice * item.quantity} SEK</div>
+                                    <div className='item-total-price'>{item.productPrice * item.quantity} SEK</div>
                                 </div>
                             </div>
                         )

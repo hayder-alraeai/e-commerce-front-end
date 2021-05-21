@@ -4,7 +4,7 @@ import {getCategories} from '../../apies/ApiFunctions'
 import '../../styles/admin-style/CreateProduct.css'
 import {EditOutlined} from '@ant-design/icons'
 import {updateProduct} from '../../apies/ProductApiFunctions'
-const UpdateProduct = ({update, obj, token}) => {
+const UpdateProduct = ({update, obj, token, reloadProductsList}) => {
     const [categories, setCategories] = useState([])
     const [isLoading, setIsLoading] = useState(true)
     const [isModalVisible, setIsModalVisible] = useState(false);
@@ -21,14 +21,15 @@ const UpdateProduct = ({update, obj, token}) => {
         setPrice(obj.productPrice)
       setIsModalVisible(true);
     };
-    const handleSubmit = e => {
+    const handleSubmit = async e => {
         e.preventDefault();
         let data = new FormData();
         data.append('image', image)
         data.append('categoryId', category)
         data.append('productDescription', description)
         data.append('productPrice', price)
-        updateProduct(data, obj.id, token)
+        await updateProduct(data, obj.id, token)
+        reloadProductsList()
     }
     const handleOk = () => {
       setIsModalVisible(false);

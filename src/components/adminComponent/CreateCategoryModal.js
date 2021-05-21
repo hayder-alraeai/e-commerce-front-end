@@ -3,7 +3,7 @@ import {backendPath} from '../../config/Config'
 import { Modal } from 'antd';
 import 'antd/dist/antd.css';
 import CreateButton from './CreateButton'
-const CreateCategoryModalen = ({token, handleMessage}) => {
+const CreateCategoryModalen = ({token, handleMessage, reloadCurrentData}) => {
     const [isModalVisible, setIsModalVisible] = useState(false);
     const [categoryName, setCategoryName] = useState({value: ''})
       const handleOk = () => {
@@ -29,6 +29,7 @@ const CreateCategoryModalen = ({token, handleMessage}) => {
         .then(response => {
           if (response.ok) {
             handleMessage('Category ' + name + ' has been added', 'success')
+            reloadCurrentData()
           }else{
             if(response.status === 403){
               alert('You have been loggedout')

@@ -18,7 +18,9 @@ const DisplayItems = ({token}) => {
     useEffect(() => {
         getProducts(setProducts, setIsLoading)
     }, [])
-
+    const reloadProductsList = () => {
+        getProducts(setProducts, setIsLoading)
+    }
     const handleMessage = (msg, MsgStyle) => {
         setMessage(msg)
         setMsgStyle(MsgStyle)
@@ -31,7 +33,7 @@ const DisplayItems = ({token}) => {
     return(
         <div className="display-items-body">
             {message && msgStyle ? <Alert className="message" message={message} type={msgStyle} showIcon /> : null}
-            <CreateProduct handleMessage={handleMessage} token={token} />
+            <CreateProduct handleMessage={handleMessage} token={token} reloadProductsList={reloadProductsList} />
             <div className="display-items-content">
                 <div className="display-items-content-header">
                     <div className="img">Image</div>
@@ -40,7 +42,7 @@ const DisplayItems = ({token}) => {
                     <div>Price</div>
                     <div>Created</div>
                     <div>Edit</div>
-                    <div>Delete</div>
+                    <div className='delete-header'>Delete</div>
                 </div>
                 {isLoading? null : 
                     products.map(item => {
@@ -51,10 +53,11 @@ const DisplayItems = ({token}) => {
                                 <div>{item.category.categoryName}</div>
                                 <div>{item.productPrice}</div>
                                 <div>{new Date(item.creationTime).toLocaleDateString()}</div>
-                                <div className="item-button update-color"><UpdateProduct obj={item} token={token} /> </div>
-                                <div className="item-button delete-color" onClick={() => {
+                                <div className="item-button update-color"><UpdateProduct obj={item} token={token} reloadProductsList={reloadProductsList} /> </div>
+                                <div className="item-button delete-color" onClick={ async() => {
                                     if (window.confirm("You are about removing a product! Are you sure?")) {
-                                        deleteProduct(item.id, token)
+                                        await deleteProduct(item.id, token)
+                                        reloadProductsList()
                                     }       
                                 }} ><DeleteOutlined /></div>
                             </div>

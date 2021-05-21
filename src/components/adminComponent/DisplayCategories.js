@@ -21,6 +21,10 @@ const DisplayCategories = ({token}) => {
         setMessage(msg)
         setMsgStyle(MsgStyle)
     }
+    //this metho help us to refetch the array from server when some chage accurs
+    const reloadCurrentData = () => {
+      getCategories(setCategories, setIsLoading)
+    }
     const deleteCategory = async(categoryId) => {
         console.log(token)
         await fetch(backendPath + '/api/categories/' + categoryId, {
@@ -33,6 +37,7 @@ const DisplayCategories = ({token}) => {
         .then(response => {
             if (response.ok) {
               handleMessage('Category has been deleted!', 'success')
+              getCategories(setCategories, setIsLoading)
             }else{
               if(response.status === 403){
                 alert('You have been loggedout')
@@ -49,7 +54,7 @@ const DisplayCategories = ({token}) => {
     return(
         <div className="admin-display-categories-body">
             {message && msgStyle ? <Alert className="message" message={message} type={msgStyle} showIcon /> : null}
-            <CreateCategoryModalen token={token} handleMessage={handleMessage} />
+            <CreateCategoryModalen token={token} handleMessage={handleMessage} reloadCurrentData={reloadCurrentData} />
             {/* //this is the table header */}
             <div className="category-wrapper-header">
                 <div className="category-item-header">
@@ -68,7 +73,10 @@ const DisplayCategories = ({token}) => {
             {!isLoading? categories.map(item => {
               return(
                     <div key={item.categoryId}>
-                        <Category obj={item} handleMessage={handleMessage}  token={token} delete={deleteCategory} />
+                        <Category obj={item} handleMessage={handleMessage} 
+                         token={token} 
+                         delete={deleteCategory} 
+                         reloadCurrentData={reloadCurrentData} />
                     </div>
               )
             }): <LoadingIcon />}
