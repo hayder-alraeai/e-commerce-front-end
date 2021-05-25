@@ -27,6 +27,10 @@ a {
   text-decoration: none;
   color: #7f7f7f;
 }
+.header-nav ul li a.active{
+  background-color: #c63736;
+  color: #fff;
+}
 .header-nav ul li a:hover{
   background-color: #c63736;
   color: #fff;

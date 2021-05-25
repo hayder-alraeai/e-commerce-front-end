@@ -1,4 +1,4 @@
-import React, {useContext} from 'react'
+import React, {useContext, useState} from 'react'
 import { Link } from 'react-router-dom';
 import  '../styles/Nav.css'
 import {ShoppingCartOutlined} from '@ant-design/icons'
@@ -12,13 +12,18 @@ import {useHistory} from 'react-router-dom'
 const Nav = ({countItems, searchHandler, togleMenuBarHandler, menuBarToggle}) => {
     const {isAuthenticated, logout} = useContext(UserContext)
     const history = useHistory()
+    const [activeLink, setActiveLink] = useState('Home')
     return(
         <div className="header">
             <nav className="header-nav">
                 <ul>
-                    <li><Link to='/'>Home</Link></li>
-                    {isAuthenticated ? <li><Link to='/admin'>Admin</Link></li> : null}
-                    {isAuthenticated ? <li onClick={logout}><Link to="/logout">Logout</Link></li> : <li><Link to="/login">Login</Link></li>}      
+                    <li><Link onClick={() => setActiveLink('Home')} className={activeLink === 'Home' || activeLink === '' ? 'active' : null} to='/'>Home</Link></li>
+                    {isAuthenticated ? <li><Link onClick={() => setActiveLink('Admin')}className={activeLink === 'Admin' ? 'active' : null} to='/admin'>Admin</Link></li> : null}
+                    {isAuthenticated ? <li onClick={() => {
+                        setActiveLink('Login')
+                        logout()
+                    }}><Link to="/logout">Logout</Link></li> : 
+                    <li><Link className={activeLink === 'Login' ? 'active' : null} onClick={() => setActiveLink('Login')} to="/login">Login</Link></li>}      
                 </ul>
             </nav>
             <div className="header-content">

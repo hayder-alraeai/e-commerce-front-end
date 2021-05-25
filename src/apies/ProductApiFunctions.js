@@ -44,9 +44,14 @@ export const deleteProduct = async (productId, token) => {
         if(res.ok){
             alert('Item has been deleted')
         }else{
-            alert('Something went wrong!')
+            if(res.status == 409){
+                alert(res.statusText.toString())
+                alert('This item is in shopping cart, please remove it first!')
+            }else{
+                alert('Somethig went wrong at server side!')
+            }
         }
-    })
+    }).catch(e => alert(e))
 
 }
 export const updateProduct = async(data, id, token) => {
