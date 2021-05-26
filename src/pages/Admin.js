@@ -43,10 +43,27 @@ const Admin = ({token, menuBarToggle}) => {
                 <div className={menuBarToggle ? "admin-aside active" : "admin-aside"}>
                     <div className="admin-aside-button-wrapper">
                         <ul>
-                            <li onClick={() => setCategory('general')}>General</li>
-                            <li onClick={() => setCategory('categories')} >Categories</li>
-                            <li onClick={() => setCategory('items')} >Items</li>
-                            <li onClick={() => setCategory('shoppingCart')} >Shoppingcart</li>
+                            <li 
+                            className={category === 'general' ? 'active' : null} 
+                            onClick={() => {
+                                setCategory('general')
+                            }}
+                            >General</li>
+                            <li 
+                            className={category === 'categories' ? 'active' : null}
+                            onClick={() => {
+                                setCategory('categories')
+                            }} >Categories</li>
+                            <li 
+                            className={category === 'items' ? 'active' : null}
+                            onClick={() => {
+                                setCategory('items')
+                            }} >Items</li>
+                            <li 
+                            className={category === 'shoppingCart' ? 'active' : null}
+                            onClick={() => {
+                                setCategory('shoppingCart')
+                            }} >Shoppingcart</li>
                         </ul>
                     </div>
                 </div>

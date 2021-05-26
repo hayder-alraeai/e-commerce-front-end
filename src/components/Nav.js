@@ -1,5 +1,5 @@
 import React, {useContext, useState} from 'react'
-import { Link } from 'react-router-dom';
+import { Link , useLocation} from 'react-router-dom';
 import  '../styles/Nav.css'
 import {ShoppingCartOutlined} from '@ant-design/icons'
 import SearchBar from './SearchBar';
@@ -12,24 +12,25 @@ import {useHistory} from 'react-router-dom'
 const Nav = ({countItems, searchHandler, togleMenuBarHandler, menuBarToggle}) => {
     const {isAuthenticated, logout} = useContext(UserContext)
     const history = useHistory()
-    const [activeLink, setActiveLink] = useState('Home')
+    const location = useLocation()
     return(
         <div className="header">
             <nav className="header-nav">
                 <ul>
-                    <li><Link onClick={() => setActiveLink('Home')} className={activeLink === 'Home' || activeLink === '' ? 'active' : null} to='/'>Home</Link></li>
-                    {isAuthenticated ? <li><Link onClick={() => setActiveLink('Admin')}className={activeLink === 'Admin' ? 'active' : null} to='/admin'>Admin</Link></li> : null}
+                    <li><Link  className={location.pathname === '/' ? 'active' : null} to='/'>Home</Link></li>
+                    {isAuthenticated ? <li><Link className={location.pathname === '/admin'? 'active' : null} to='/admin'>Admin</Link></li> : null}
                     {isAuthenticated ? <li onClick={() => {
-                        setActiveLink('Login')
                         logout()
                     }}><Link to="/logout">Logout</Link></li> : 
-                    <li><Link className={activeLink === 'Login' ? 'active' : null} onClick={() => setActiveLink('Login')} to="/login">Login</Link></li>}      
+                    <li><Link className={location.pathname === '/login' ? 'active' : null}  to="/login">Login</Link></li>}      
                 </ul>
             </nav>
             <div className="header-content">
                 <div className="header-logo">
                     <img onClick={() => history.push('/')} className="header-logo-image" src={logo1} alt="logo1" />
-                     <div className="bars" onClick={togleMenuBarHandler}><i className={menuBarToggle ? 'fas fa-times' : 'fas fa-bars'}></i></div>
+                    {location.pathname === '/login' ? null :
+                        <div className="bars" onClick={togleMenuBarHandler}><i className={menuBarToggle ? 'fas fa-times' : 'fas fa-bars'}></i></div>
+                    }
                 </div>
                 <div className="search-bar"><SearchBar searchHandler={searchHandler} /></div>
                 <div className="shopping-cart">
