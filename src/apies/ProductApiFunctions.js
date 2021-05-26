@@ -44,7 +44,7 @@ export const deleteProduct = async (productId, token) => {
         if(res.ok){
             alert('Item has been deleted')
         }else{
-            if(res.status == 409){
+            if(res.status === 409){
                 alert(res.statusText.toString())
                 alert('This item is in shopping cart, please remove it first!')
             }else{

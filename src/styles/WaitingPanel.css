@@ -1,0 +1,24 @@
+.waiting-panel-wrapper{
+    background-color: #f6f6f6;
+    padding: 20px;
+}
+.waiting-panel-wrapper .bar-wrapper{
+    position: relative;
+    height: 20px;
+    margin: 10px 0;
+    box-shadow: 2px 1px 10px rgba(0,0,0, .10);
+    border-radius: 10px ;
+}
+.waiting-panel-wrapper .bar-wrapper .bar-content{
+    /* background-color: tomato; */
+    background-image: linear-gradient(to bottom, #f1c6be, #e65245);
+    height: 100%;
+    transition: .1s width  ease;
+    border-radius: 10px ;
+}
+.bar-text{
+    position: absolute;
+    font-size: 12px;
+    font-weight: bolder;
+    left: 45%;
+}

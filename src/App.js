@@ -58,20 +58,12 @@ function App() {
   }
   const handleTotalItemsInNavBarAndTotalPrice = (payload, obj) => {
         if(payload === 'plus'){
-          addToCart.map(item => {
-            if(item.id === obj.id){
-              item.quantity ++
-            }
-        })
+        addToCart.map(item => item.id === obj.id? item.quantity ++ : null)
         setAddToCart(addToCart)
         setCountItems(items => items + 1)
         setTotalPrice(items => items + obj.productPrice)
       }else{
-          addToCart.map(item => {
-            if(item.id === obj.id){
-              item.quantity --
-            }
-          })
+          addToCart.map(item => item.id === obj.id ? item.quantity -- : null)
           setAddToCart(addToCart)
           setCountItems(items => items - 1)
           setTotalPrice(items => items - obj.productPrice)
@@ -89,18 +81,11 @@ function App() {
           setAddToCart(currentItems => [...currentItems, obj])
           setCountItems(items => items + 1)
         }else{
-          addToCart.map(item => {
-              if(item.id === obj.id){
-                item.quantity ++
-              }
-          })
+          addToCart.map(item => item.id === obj.id ? item.quantity ++ : null)
           setTotalPrice(items => items + obj.productPrice)
           setAddToCart(addToCart)
           setCountItems(items => items + 1)
         }
-  }
-  const addToLocalStorge = () => {
-    localStorage.setItem('shopingCart', addToCart)
   }
 
   const checkIsLoggedIn = () => {

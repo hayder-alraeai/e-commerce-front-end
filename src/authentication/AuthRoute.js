@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react'
-import {Route, Redirect, useHistory} from 'react-router-dom'
+import React from 'react'
+import {Route, Redirect} from 'react-router-dom'
 
 const AuthRoute = ({component, token, isAuthenticated, ...rest}) => {
     if(isAuthenticated){

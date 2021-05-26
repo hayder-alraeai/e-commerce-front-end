@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react'
 import CreateButton from './CreateButton'
 import { Modal } from 'antd';
 import {addProduct} from '../../apies/ProductApiFunctions'
-import {getCategories} from '../../apies/ApiFunctions'
+import {getCategoriesAdmin} from '../../apies/ApiFunctions'
 import '../../styles/admin-style/CreateProduct.css'
 const CreateProduct = ({token, handleMessage, reloadProductsList}) => {
     const [categories, setCategories] = useState([])
@@ -10,10 +10,10 @@ const CreateProduct = ({token, handleMessage, reloadProductsList}) => {
     const [isModalVisible, setIsModalVisible] = useState(false);
     const [description, setDescription] = useState("")
     const [image, setImage] = useState(null)
-    const [category, setCategory] = useState("")
+    const [category, setCategory] = useState('')
     const [price, setPrice] = useState("")
     useEffect(() => {
-        getCategories(setCategories, setIsLoading)
+        getCategoriesAdmin(setCategories, setIsLoading, setCategory)
     },[])
     const showModal = () => {
       setIsModalVisible(true);
@@ -49,13 +49,9 @@ const CreateProduct = ({token, handleMessage, reloadProductsList}) => {
                     <textarea placeholder='Description ...' value={description} onChange={e => setDescription(e.target.value)} />
                     <input type='number' placeholder='Price' value={price} onChange={e => setPrice(e.target.value)} />
                     <input type="file"  onChange={e => setImage(e.target.files[0])} required />
-                    <select value={category} onChange={e => setCategory(e.target.value)} defaultValue='Choose Category' required='true'>
+                    <select value={category} onChange={e => setCategory(e.target.value)}  required='true'>
                     {isLoading ? <p>No data</p> : 
-                        categories.map(item => {
-                            return(
-                                <option key={item.categoryId} value={item.categoryId}>{item.categoryName}</option>
-                            )
-                        })
+                        categories.map(item =>  <option  key={item.categoryId} value={item.categoryId}>{item.categoryName}</option>)
                     }
                     </select>
                     <input type='submit' value='Save' onClick={handleSubmit}/>
