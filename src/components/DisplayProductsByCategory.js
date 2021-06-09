@@ -9,7 +9,6 @@ const DisplayProductsByCategory = ({categoryIdLocal, handleAddToCart}) => {
     const [isLoading, setIsloading] = useState(true)
     useEffect(() => {
         getProductsByCategoryId(setProductslist, setIsloading, categoryIdLocal) 
-        
     }, [productsList])
     
     return(

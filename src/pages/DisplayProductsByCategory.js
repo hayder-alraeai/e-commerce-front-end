@@ -17,7 +17,6 @@ const DisplayProductsByCategoryId = ({categoryId, handleAddToCart}) => {
     
     return(
         <div className="home-body">
-            {console.log('this is useParams: ' + id)}
             <DisplayProductsByCategory handleAddToCart={handleAddToCart}  categoryIdLocal={categoryIdLocal ? categoryIdLocal : id} />
         </div>
     )

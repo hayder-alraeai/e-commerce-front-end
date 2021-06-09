@@ -17,7 +17,7 @@ const ProductPage = ({handleAddToCart, isAuthenticated, token}) => {
 
     useEffect(() => {
         getProductById(setProduct, setIsLoading, id)
-    }, [product])
+    }, [])
     
     if(isLoading){
         return(
@@ -28,6 +28,7 @@ const ProductPage = ({handleAddToCart, isAuthenticated, token}) => {
         <div className='wrapper'>
             <div className='product-body'>
                 <div className='image-body'>
+                    {console.log(product)}
                     <img src={backendPath + "/api/images/" + product.imageId} />
                 </div>
                 <div className='product-info'>

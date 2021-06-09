@@ -17,9 +17,10 @@ const DisplayShoppingCart = ({token}) => {
         let date =  new Date(d)
         return date.toLocaleDateString()  + ' ' + date.getHours() + ':' + date.getMinutes()
     }
-    const handleDelete = (orderId) => {
+    const handleDelete = async(orderId) => {
         if(window.confirm("You are about removing this order! Are you sure?")){
-            deleteOrders(orderId, token)
+           await deleteOrders(orderId, token)
+           await getOrders(setOrders, setIsLoading, token)
         }    
     }
     return(
@@ -64,7 +65,9 @@ const DisplayShoppingCart = ({token}) => {
                                                 <div>{converDate(item.timeStamp)}</div>
                                                 <div>{item.orderStatus}</div>
                                                 <div className='order-button update-color'><EditOutlined /></div>
-                                                <div onClick={() => handleDelete(item.id)} className='order-button delete-color' ><DeleteOutlined/></div>
+                                                <div onClick={() => {
+                                                        handleDelete(item.id)
+                                                    }} className='order-button delete-color' ><DeleteOutlined/></div>
                                                 <div className='order-button update-color' ><EyeOutlined /></div>
                                                 <div className='order-button confirm-color' ><SendOutlined /></div>
                                                 </div>
